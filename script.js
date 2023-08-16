@@ -29,3 +29,31 @@ document.getElementById("switchToLogin").addEventListener("click", function(e) {
     document.getElementById("loginForm").style.display = "block";
     document.getElementById("registerForm").style.display = "none";
 });*/
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var role = document.getElementById("role").value;
+
+    // Perform authentication logic here
+
+    // Assuming you've verified the credentials and role
+    if (role === "parent") {
+        // Redirect to parent.html
+        window.location.href = "parent/parent.html";
+    } else if (role === "teacher") {
+        // Redirect to teacher.html
+        window.location.href = "teacher/teacher.html";
+    } else if (role === "admin") {
+        // Redirect to admin.html
+        window.location.href = "admin/admin.html";
+    }
+    else if (role === "guest"){
+        window.location.href = "index.html";
+      
+    } else {
+        alert("Invalid credentials. Please try again.");
+    }
+});

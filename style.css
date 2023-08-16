@@ -150,52 +150,7 @@ section{
   text-decoration: underline;
 }
 
-/* register form 
-.header .register-form{
-  position: absolute;
-  top: 110%;
-  right: -110%;
-  width: 35rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  border-radius: .5rem;
-  background: var(--white);
-  text-align: center;
-}
 
-.header .register-form.active{
-  right: 2rem;
-  transition: .4s linear;
-}
-
-.header .register-form h3{
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  color: var(--black);
-}
-
-.header .register-form .box{
-  width: 100%;
-  margin: .7rem 0;
-  background: #eee;
-  border-radius: .5rem;
-  padding: 1rem;
-  font-size: 1.6rem;
-  color: var(--black);
-  text-transform: capitalize;
-}
-
-.header .register-form p{
-  font-size: 1.4rem;
-  padding: .5rem 0;
-  color: var(--light-color);
-}
-
-.header .register-form p a{
-  color: var(--orange);
-  text-decoration: underline;
-}
-*/
 
 /* header ends */
 
@@ -717,3 +672,102 @@ section{
 }
 
 
+/* register form */
+/* Add a background image to the "home" section */
+
+.reg {
+  background-image: url('https://wallpapercave.com/wp/wp2346089.jpg'); /* Replace with the actual path to your image */
+  background-size: cover; /* or 'contain' if you want the image to fit inside the section */
+  background-position: center; /* adjust the positioning as needed */
+  background-repeat: no-repeat;
+  /* Other styles for spacing, padding, etc. */
+  padding: 20px;
+  min-height: 800px;
+}
+
+.form-box
+{
+  width:90%;
+  max-width: 450px;
+  position:absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 50px 60px 70px;
+  text-align: center;
+
+}
+
+
+.form-box h1{
+  font-size: 30px;
+  margin-bottom: 60px;
+  color: #f9ba60;
+  position: relative;
+}
+
+.form-box h1::after{
+  content: '';
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  background: #f9ba60;
+  position:absolute;
+  bottom: -12px;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.input-field{
+  background: #eaeaea;
+  margin: 15px 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+input{
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 18px 15px;
+}
+
+.input-field i{
+  margin-left: 15px;
+  color: #9999;
+}
+
+.form-reg p{
+  text-align: cemter;
+  font-size: 13px;
+}
+
+.form-reg p a{
+  text-decoration: none;
+  color: #f9ba60;
+}
+
+.form-reg .btn-field-register{ 
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-reg .btn-field-register button{
+  flex-basis: 50%;
+  background: #f9ba60;
+  color: #fff;
+  height: 40px;
+  border-radius:  20px;
+  border: 0;
+  outline: 0;
+  cursor:pointer;
+  transition:   1s;
+}
+
+.input-group{
+  height: 280px;
+}

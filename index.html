@@ -18,7 +18,7 @@
 
     <header class="header">
 
-        <a href="#" class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
+        <a href="index.html" class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
 
         <nav class="navbar">
             <a href="#home">home</a>
@@ -36,39 +36,19 @@
      
         <form action="" class="login-form" id="loginForm">
             <h3>login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forget your password <a href="#">click here</a> </p>
-            <input type="submit" value="login now" class="btn">
-            <p><a href="#" id="switchToRegister">Doesn't have an account yet?</a></p>
-        </form>
+            <input type="email" placeholder="your email" class="box" id="email">
+            <input type="password" placeholder="your password" class="box" id="password">
+            <select id="role">
+                <option value="parent">Parent </option>
+                <option value="teacher">Teacher </option>
+                <option value="admin">Admin </option>
+                <option value="guest">Guest </option>
 
-        <form action="" class="register-form" id="registerForm" style="display: block;">
-            <!-- Your register form fields go here -->
-            <!-- For example: -->
-            <h3>register account</h3>
-            <input type="text" placeholder="Full Name" class="box">
-            <!-- <input type="email" placeholder="your email" class="box"> -->
-            <!-- <input type="password" placeholder="your password" class="box"> -->
-            <!-- <input type="password" placeholder="confirm password" class="box"> -->
-            <input type="submit" value="Register" class="btn"> 
-            <p><a href="#" id="switchToLogin">Already have an account? </a></p>
+            </select>
+            <p>Forget your password <a href="#">click here</a></p>
+            <input type="submit" value="login now" class="btn">
+            <p><a href="register.html" id="switchToRegister">Doesn't have an account yet?</a></p>
         </form>
-        <script>
-            document.getElementById("switchToRegister").addEventListener("click", function (e) {
-              e.preventDefault();
-              document.getElementById("loginForm").style.display = "none";
-              document.getElementById("registerForm").style.display = "block";
-            });
-          
-            document.getElementById("switchToLogin").addEventListener("click", function (e) {
-              e.preventDefault();
-              document.getElementById("registerForm").style.display = "none";
-              document.getElementById("loginForm").style.display = "block";
-            });
-          </script>
-          
-        
 
     </header>
 
@@ -80,7 +60,8 @@
 
         <div class="content">
             <h3>welcome to our <span>Kindergarten</span></h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur minus aut, in maiores quidem </p>
+            <p>BK is a vibrant and nurturing learning space for young explorers. We provide a joyful and supportive environment where children can discover, learn, and grow. Our dedicated team of educators is committed to fostering a love for learning and helping children develop essential skills through engaging activities and play. 
+                Join us on this exciting journey of early education! </p>
             <a href="#" class="btn">learn more</a>
         </div>
 
