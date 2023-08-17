@@ -313,7 +313,7 @@ section{
 /* teacher */
 
 .teacher{
-  background: url(images/teacher-bg.png) no-repeat;
+  background: url(teacher-bg.png) no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -405,7 +405,7 @@ section{
 /* gallery */
 
 .gallery{
-  background: url(images/gallery-bg.png) no-repeat;
+  background: url(gallery-bg.png) no-repeat;
   background-size: cover; 
 }
 
