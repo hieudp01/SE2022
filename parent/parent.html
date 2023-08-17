@@ -60,14 +60,25 @@
    <!-- footer section ends -->
    <section class="feedback">
     <h1>Give Feedback</h1>
+
+   
      <div class="feedback-box">
+        <div class="teacher-name">
+            <label for="teacher">Teacher's Name:</label>
+            <input type="text" id="teacher" name="teacher" placeholder="Enter teacher's name...">
+        </div>
+        <div class="comment">
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" placeholder="Enter your comment..."></textarea>
+        </div>
         <div class="emoji">
+            <h1>Rate</h1>
             <div id="emoji2"> 
-                <img src="..\images\excellent.png">
-                <img src="..\images\good.png">
-                <img src="..\images\okay.png">
                 <img src="..\images\poor.png">
                 <img src="..\images\bad.png">
+                <img src="..\images\okay.png">
+                <img src="..\images\good.png">
+                <img src="..\images\excellent.png">
             </div>
            
            
@@ -87,86 +98,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- lightgallery cdn js link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <!-- custom js file link -->
     <script src="script.js"></script>
 
-    <script>
-        lightGallery(document.querySelector('.gallery .gallery-container'));
-
-        var stars = document.getElementsByClassName("fas");
-        var emoji =document.getElementById("emoji2")
-
-        stars[0].onclick =function() {
-            stars[0].style.color = "#ffd93b";
-            stars[1].style.color = "#e4e4e4";
-            stars[2].style.color = "#e4e4e4";
-            stars[3].style.color = "#e4e4e4";
-            stars[4].style.color = "#e4e4e4";
-            emoji.style.transform = translateX(0);
-
-        }
-
-        stars[1].onclick =function() {
-            stars[0].style.color = "#e4e4e4";
-            stars[1].style.color = "#ffd93b";
-            stars[2].style.color = "#e4e4e4";
-            stars[3].style.color = "#e4e4e4";
-            stars[4].style.color = "#e4e4e4";
-            emoji.style.transform = translateX(0);
-
-        }
-
-        stars[2].onclick =function() {
-            stars[0].style.color = "#e4e4e4";
-            stars[1].style.color = "#e4e4e4";
-            stars[2].style.color = "#ffd93b";
-            stars[3].style.color = "#e4e4e4";
-            stars[4].style.color = "#e4e4e4";
-            emoji.style.transform = translateX(0);
-
-        }
-
-        stars[3].onclick =function() {
-            stars[0].style.color = "#e4e4e4";
-            stars[1].style.color = "#e4e4e4";
-            stars[2].style.color = "#e4e4e4";
-            stars[3].style.color = "#e4e4e4";
-            stars[4].style.color = "#ffd93b";
-            emoji.style.transform = translateX(0);
-
-        }
-
-        stars[5].onclick = function() {
-            stars[0].style.color = "#e4e4e4";
-            stars[1].style.color = "#e4e4e4";
-            stars[2].style.color = "#e4e4e4";
-            stars[3].style.color = "#e4e4e4";
-            stars[4].style.color = "#ffd93b";
-            emoji.style.transform = translateX(0);
-        }
-    </script>
-
+    
 </body>
 </html>
