@@ -165,62 +165,15 @@
           text-decoration: underline;
         }
         
-    
-        /* footer */
         
-        .footer{
-          background: var(--pink);
+        
+        /* header ends */
+        
+        .container 
+        {
+            max-height: 280px;
         }
-        
-        .footer .box-container{       
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
-          gap: 1.5rem;
-        }
-        
-        .footer .box-container .box h3{
-          font-size: 2.2rem;
-          color: var(--orange);
-          padding: 1rem 0;
-        }
-        
-        .footer .box-container .box p{
-          font-size: 1.5rem;
-          color: var(--white);
-          padding: 1rem 0;
-          line-height: 2;
-        }
-        
-        .footer .box-container .box a{
-          display: block;
-          font-size: 1.4rem;
-          color: var(--white);
-          padding: 1rem 0;
-        }
-        
-        .footer .box-container .box a:hover{
-          color: var(--orange);
-        }
-        
-        .footer .box-container .box a i{
-          padding-right: .5rem;
-          color: var(--orange);
-        }
-        
-        .footer .credit{
-          margin-top: 2.5rem;
-          padding: 1rem;
-          padding-top: 2rem;
-          border-top: .1rem solid rgba(0,0,0,.3);
-          text-align: center;
-          color: var(--white);
-          font-size: 2rem;
-        }
-        
-        .footer .credit span{
-          color: var(--orange);
-        }
-        
+       
         /* end */
         
         /* media query */
@@ -283,6 +236,9 @@
         }
         
         
+        /* register form */
+        /* Add a background image to the "home" section */
+        
        </style>
 </head>
 <body>
@@ -293,23 +249,33 @@
 
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <a href="#activities">Feedback</a>
-            <a href="#meal">meal</a>
-            <a href="#fees">Fees</a>
-            <a href="../index.html">Logout</a>
+            <a href="child.html">Child</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="meal.html">meal</a>
+            <a href="fee.html">Fees</a>
+            <a href="parent.html">Back</a>
         </nav>
       
-        </form>
 
     </header>
 
     <!-- header section ends -->
-   
+   <div class="container">
+      <form action="">
+        <div class="row">
+            <div class="col">
+                <h3 class="title">paying fee</h3>
+                <div class="input_box">
+                    <span>full name: </span>
+                    <input type="text" placeholder="Nguyen Van A">
+                </div>
+            </div>
+        </div>
+      </form>
+   </div>
   
     <!-- contact section ends -->
-   <section>
-
+    
    </section>
     <!-- lightgallery cdn js link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
@@ -317,57 +283,7 @@
     <script src="script.js"></script>
 
     <script>
-      lightGallery(document.querySelector('.gallery .gallery-container'));
-
-      var stars = document.getElementsByClassName("fas");
-      var emoji =document.getElementById("emoji2")
-
-
-      stars[1].onclick =function() {
-          stars[1].style.color = "#ffd93b";
-          stars[2].style.color = "#e4e4e4";
-          stars[3].style.color = "#e4e4e4";
-          stars[4].style.color = "#e4e4e4";
-          stars[5].style.color = "#e4e4e4";
-          emoji.style.transform = "translateX(0)";
-      }
-
-      stars[2].onclick =function() {
-          stars[1].style.color = "#ffd93b";
-          stars[2].style.color = "#ffd93b";
-          stars[3].style.color = "#e4e4e4";
-          stars[4].style.color = "#e4e4e4";
-          stars[5].style.color = "#e4e4e4";
-          emoji.style.transform = "translateX(-100px)";
-      }
-
-      stars[3].onclick =function() {
-          stars[1].style.color = "#ffd93b";
-          stars[2].style.color = "#ffd93b";
-          stars[3].style.color = "#ffd93b";
-          stars[4].style.color = "#e4e4e4";
-          stars[5].style.color = "#e4e4e4";
-          emoji.style.transform = "translateX(-200px)";
-      }
-
-      stars[4].onclick =function() {
-          stars[1].style.color = "#ffd93b";
-          stars[2].style.color = "#ffd93b";
-          stars[3].style.color = "#ffd93b";
-          stars[4].style.color = "#ffd93b";
-          stars[5].style.color = "#e4e4e4";
-          emoji.style.transform = "translateX(-300px)";
-      }
-
-
-      stars[5].onclick =function() {
-          stars[1].style.color = "#ffd93b";
-          stars[2].style.color = "#ffd93b";
-          stars[3].style.color = "#ffd93b";
-          stars[4].style.color = "#ffd93b";
-          stars[5].style.color = "#ffd93b";
-          emoji.style.transform = "translateX(-400px)";
-      }
+   
   </script>
 </body>
 </html>
