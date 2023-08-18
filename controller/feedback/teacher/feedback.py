@@ -10,4 +10,3 @@ from model.Teacher import Teacher
 from db_config import db_session
 
 feedback = Blueprint('feedback', __name__, url_prefix='/feedback')
-

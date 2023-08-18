@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 from model.Base import Base
 from model.role import Role
@@ -12,6 +12,7 @@ class Teacher(Base):
     email = Column(String(100), nullable=False)
     phone = Column(String(11), nullable=False)
     password = Column(String(20), nullable=False)
+    class_id = Column(Integer, ForeignKey("class.id"), nullable=False)
 
     @staticmethod
     def get_role():

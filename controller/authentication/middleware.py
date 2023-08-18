@@ -9,11 +9,11 @@ def __login_required(f, role: list):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user' not in session or session['user'] is None:
-            return redirect(url_for('login.parent_page'))
+            return redirect(url_for('auth.index'))
         for r in role:
             if session['user']['role'] == r:
                 return f(*args, **kwargs)
-        return redirect(url_for('login.parent_page'))
+        return redirect(url_for('auth.index'))
 
     return decorated_function
 

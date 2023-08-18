@@ -4,7 +4,9 @@ from controller.authentication.middleware import teacher_required, parent_requir
 
 parent_route = Blueprint('parent', __name__, url_prefix='/')
 teacher_route = Blueprint('teacher', __name__, subdomain='teacher')
-admin_route = Blueprint('admin', __name__, subdomain='admin')
+
+
+# admin_route = Blueprint('admin', __name__, subdomain='admin')
 
 
 @parent_route.get('/')

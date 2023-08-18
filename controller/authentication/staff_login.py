@@ -1,25 +1,36 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, session, redirect, url_for
 
+from controller.authentication import utils
+from model.Teacher import Teacher
 from model.role import Role
 
-staff_auth = Blueprint('login', __name__, url_prefix='/login', subdomain='staff')
+teacher_auth = Blueprint('teacher_auth', __name__, url_prefix='/auth', subdomain='teacher')
 
 
-@staff_auth.get('/teacher')
-def teacher_page():
-    return render_template('authentication/login.html', role=Role.TEACHER, role_list=Role)
+@teacher_auth.get('/')
+def index():
+    return render_template('authentication/login.html', role=Role.TEACHER)
 
 
-@staff_auth.post('/teacher')
-def teacher_login():
-    pass
+@teacher_auth.get('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('teacher_auth.index'))
 
 
-@staff_auth.get('/admin')
-def admin_page():
-    return render_template('authentication/login.html', role=Role.ADMIN)
+@teacher_auth.post('/')
+def login():
+    teacher = utils.login(Teacher, Teacher.email, Role.TEACHER)
+    if type(teacher) is str:
+        return teacher
 
+    session['user'] = {
+        "id": teacher.id,
+        "name": teacher.name,
+        "email": teacher.email,
+        "phone": teacher.phone,
+        "role": Teacher.get_role(),
+        "class_id": teacher.class_id
+    }
 
-@staff_auth.post('/admin')
-def admin_login():
-    pass
+    return redirect(url_for('teacher.index'))

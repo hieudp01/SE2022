@@ -6,22 +6,25 @@ from model.Parent import Parent
 from controller.authentication import utils
 from model.role import Role
 
-authentication = Blueprint('login', __name__, url_prefix='/login')
+auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 
-@authentication.get('/')
-def parent_page():
-    return render_template('authentication/login.html', role=Role.PARENT, role_list=Role)
+@auth.get('/')
+def index():
+    return render_template('authentication/login.html', role=Role.PARENT)
 
 
-@authentication.post('/')
+@auth.get('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('auth.index'))
+
+
+@auth.post('/')
 def login():
-    if request.form.get("username") is None or request.form.get("password") is None:
-        return render_template('authentication/login.html', error="Username or password is empty")
-
-    parent = Parent.query.where(Parent.id == request.form['username']).first()
-    if parent is None or not utils.verify_password(request.form['password'], parent.password):
-        return render_template('authentication/login.html', error="Username or password is incorrect")
+    parent = utils.login(Parent, Parent.id, Role.PARENT)
+    if type(parent) is str:
+        return parent
 
     session['user'] = {
         "id": parent.id,
