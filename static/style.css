@@ -156,71 +156,62 @@ section{
 
 /* home */
 
-.home{
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
+
+
+/* footer */
+
+.footer{
+  background: var(--pink);
+}
+
+.footer .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
   gap: 1.5rem;
-  align-items: center;
-  position: relative;
 }
 
-.home .content{
-  flex: 1 1 40rem;
-  padding-top: 6.5rem;
-}
-
-.home .content h3{
-  font-size: 6rem;
-  color: var(--black);
-}
-
-.home .content h3 span{
+.footer .box-container .box h3{
+  font-size: 2.2rem;
   color: var(--orange);
-}
-
-.home .content p{
-  font-size: 1.7rem;
-  color: var(--light-color);
-  line-height: 1.8;
   padding: 1rem 0;
 }
 
-.home .image{
-  flex: 1 1 40rem;
+.footer .box-container .box p{
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 1rem 0;
+  line-height: 2;
 }
 
-.home .image img{
-  width: 100%;
-  padding: 4rem;
-}
-
-.custom-shape-divider-bottom-1684324473 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1684324473 svg {
-  position: relative;
+.footer .box-container .box a{
   display: block;
-  width: calc(100% + 1.3px);
-  height: 107px;
-  transform: rotateY(180deg);
+  font-size: 1.4rem;
+  color: var(--white);
+  padding: 1rem 0;
 }
 
-.custom-shape-divider-bottom-1684324473 .shape-fill {
-  fill: var(--pink);
+.footer .box-container .box a:hover{
+  color: var(--orange);
 }
 
-/* end */
+.footer .box-container .box a i{
+  padding-right: .5rem;
+  color: var(--orange);
+}
 
-/* about us */
+.footer .credit{
+  margin-top: 2.5rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  border-top: .1rem solid rgba(0,0,0,.3);
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+}
 
-
+.footer .credit span{
+  color: var(--orange);
+}
 
 /* end */
 
@@ -286,62 +277,101 @@ section{
 
 /* register form */
 /* Add a background image to the "home" section */
-.child{
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: center;
-    position: relative;
-  }
 
-
-
-.feedback
-{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  background-color: #e9768f;
-  justify-content: center;
+.reg {
+  background-image: url('https://wallpapercave.com/wp/wp2346089.jpg'); /* Replace with the actual path to your image */
+  background-size: cover; /* or 'contain' if you want the image to fit inside the section */
+  background-position: center; /* adjust the positioning as needed */
+  background-repeat: no-repeat;
+  /* Other styles for spacing, padding, etc. */
+  padding: 20px;
+  min-height: 800px;
 }
 
-.feedback-box
+
+.form-box
 {
+  width:90%;
+  max-width: 450px;
+  position:absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
-  padding: 50px 100px;
-  border-radius: 10px;
+  padding: 50px 60px 70px;
+  text-align: center;
+
+}
+
+
+.form-box h1{
+  font-size: 30px;
+  margin-bottom: 60px;
+  color: #f9ba60;
+  position: relative;
+}
+
+.form-box h1::after{
+  content: '';
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  background: #f9ba60;
+  position:absolute;
+  bottom: -12px;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.input-field{
+  background: #eaeaea;
+  margin: 15px 0;
+  border-radius: 3px;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-.emoji
-{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 30px;
-  overflow: hidden;
+input{
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 18px 15px;
 }
 
-.emoji img{
-  width: 80px;
-  margin: 0 10px;
-
+.input-field i{
+  margin-left: 15px;
+  color: #9999;
 }
 
-#emoji2 {
+.form-reg p{
+  text-align: center;
+  font-size: 13px;
+}
+
+.form-reg p a{
+  text-decoration: none;
+  color: #f9ba60;
+}
+
+.form-reg .btn-field-login{ 
+  width: 100%;
   display: flex;
-  align-items: center;
-  transform: translateX(-400px);
-  transition: 0.3s;
-
+  justify-content: space-around;
 }
 
-.rating .fas{
-  font-size: 40px;
-  color: #e4e4e4;
+.form-reg .btn-field-login button{
+  flex-basis: 50%;
+  background: #f9ba60;
+  color: #fff;
+  height: 40px;
+  border-radius:  20px;
+  border: 0;
+  outline: 0;
   cursor:pointer;
+  transition:   1s;
+}
+
+.input-group{
+  height: 200px;
 }
