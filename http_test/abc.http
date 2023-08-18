@@ -1,0 +1,6 @@
+# @no-redirect
+GET http://localhost:1337/
+
+
+###
+GET http://teacher.localhost:1337/

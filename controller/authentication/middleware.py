@@ -5,7 +5,7 @@ from flask import redirect, url_for, session
 from model.role import Role
 
 
-def login_required(f, role: list):
+def __login_required(f, role: list):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user' not in session or session['user'] is None:
@@ -19,12 +19,20 @@ def login_required(f, role: list):
 
 
 def parent_required(f):
-    return login_required(f, [Role.PARENT.value])
+    return __login_required(f, [Role.PARENT.value])
 
 
 def teacher_required(f):
-    return login_required(f, [Role.TEACHER.value])
+    return __login_required(f, [Role.TEACHER.value])
+
+
+def parent_or_teacher_required(f):
+    return __login_required(f, [Role.TEACHER.value, Role.PARENT.value])
 
 
 def admin_required(f):
-    return login_required(f, [Role.ADMIN.value])
+    return __login_required(f, [Role.ADMIN.value])
+
+
+def auth_required(f):
+    return __login_required(f, [Role.ADMIN.value, Role.TEACHER.value, Role.PARENT.value])
