@@ -8,5 +8,6 @@ class Feedback(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     content = Column(String(500), nullable=False)
-    teacher_id = Column(Integer, ForeignKey("teacher.id") ,nullable=False)
-    date = Column(DateTime, nullable=False)
+    teacher_id = Column(Integer, ForeignKey("teacher.id"), nullable=False)
+    time = Column(DateTime, nullable=False)
+    child_id = Column(Integer, ForeignKey("child.id"), nullable=False)
