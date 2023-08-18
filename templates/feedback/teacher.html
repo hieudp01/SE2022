@@ -1,0 +1,27 @@
+hiện list học sinh, nhập feedback cho mỗi học sinh<br>
+dùng javascript để post feedback lên server, không reload lại trang, server sẽ trả về json response kiểu<br>
+{
+"status": "success"
+}
+<br>
+hoặc
+<br>
+{
+"status": "error",
+"message": "Feedback submission failed"
+}
+<br>
+nếu error thì hiện message ra, nếu success thì update lại trang (bằng javascript, không reload)
+
+{% for child in children_list %}
+    <div class="form-group">
+        <form action="{{ url_for("teacher.feedback.post") }}" method="post">
+            <input hidden="" name="child_id" value="{{ child.id }}">
+            <label for="feedback">Feedback for {{ child.name }} (DOB: {{ child.DOB }})</label>
+            <br>
+            <textarea class="form-control" name="feedback"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endfor %}
