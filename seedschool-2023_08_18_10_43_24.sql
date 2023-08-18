@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `checkin_img`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `checkin_img` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
+  `children_id` varchar(6) NOT NULL,
   `img_name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `checkin_img_student_id_fk` (`student_id`),
-  CONSTRAINT `checkin_img_student_id_fk` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
+  KEY `checkin_img_children_id_fk` (`children_id`),
+  CONSTRAINT `checkin_img_children_id_fk` FOREIGN KEY (`children_id`) REFERENCES `children` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,6 +39,36 @@ CREATE TABLE `checkin_img` (
 LOCK TABLES `checkin_img` WRITE;
 /*!40000 ALTER TABLE `checkin_img` DISABLE KEYS */;
 /*!40000 ALTER TABLE `checkin_img` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `children`
+--
+
+DROP TABLE IF EXISTS `children`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `children` (
+  `id` varchar(6) NOT NULL DEFAULT concat(substr('0123456789',floor(rand() * 9 + 1),1),substr('0123456789',floor(rand() * 9 + 1),1),substr('0123456789',floor(rand() * 9 + 1),1),substr('0123456789',floor(rand() * 9 + 1),1),substr('0123456789',floor(rand() * 9 + 1),1),substr('0123456789',floor(rand() * 9 + 1),1)),
+  `name` varchar(100) NOT NULL,
+  `age` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_class_id_fk` (`class_id`),
+  KEY `student_parent_id_fk` (`parent_id`),
+  CONSTRAINT `student_class_id_fk` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`),
+  CONSTRAINT `student_parent_id_fk` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `children`
+--
+
+LOCK TABLES `children` WRITE;
+/*!40000 ALTER TABLE `children` DISABLE KEYS */;
+/*!40000 ALTER TABLE `children` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -187,11 +217,11 @@ CREATE TABLE `parent` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(11) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `phone` (`phone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,37 +230,8 @@ CREATE TABLE `parent` (
 
 LOCK TABLES `parent` WRITE;
 /*!40000 ALTER TABLE `parent` DISABLE KEYS */;
+INSERT INTO `parent` (`id`, `name`, `email`, `phone`, `password`) VALUES (5,'Nguyen Van A','email1@gmail.com','0123456789','$2b$12$Qcsm8lmONsdJOvJoLFWyFecdYH90OimGDmoQgc6hfnDVAQ1dqGAPi');
 /*!40000 ALTER TABLE `parent` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `student`
---
-
-DROP TABLE IF EXISTS `student`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `student` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `age` int(11) NOT NULL,
-  `class_id` int(11) NOT NULL,
-  `parent_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `student_class_id_fk` (`class_id`),
-  KEY `student_parent_id_fk` (`parent_id`),
-  CONSTRAINT `student_class_id_fk` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`),
-  CONSTRAINT `student_parent_id_fk` FOREIGN KEY (`parent_id`) REFERENCES `parent` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `student`
---
-
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -244,7 +245,7 @@ CREATE TABLE `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
   `phone` int(11) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `phone` (`phone`)
@@ -297,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-18  1:36:33
+-- Dump completed on 2023-08-18 10:43:24
