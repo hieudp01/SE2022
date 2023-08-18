@@ -27,6 +27,11 @@ def teacher_login():
 def admin_page():
     return render_template('authentication/admin-login.html')
 
+@auth.get('/parents')
+def parents_page():
+    return render_template('authentication/parent.html')
+
+
 
 @auth.post('/admin')
 def admin_login():
