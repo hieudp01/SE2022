@@ -4,14 +4,17 @@ from sqlalchemy.orm import Session
 from db_config import engine
 from model.Children import Children
 from model.Parent import Parent
+from model.role import Role
+
 from controller.authentication import utils
+
 
 auth = Blueprint('login', __name__, url_prefix='/login')
 
 
 @auth.get('/')
 def parent_page():
-    return render_template('authentication/login.html')
+    return render_template('authentication/login.html', role=Role.PARENT, role_list=Role)
 
 
 @auth.post('/add-parent')

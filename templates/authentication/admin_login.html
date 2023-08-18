@@ -15,10 +15,15 @@
 </head>
 <body>
     <header class="header">
+
         <a href="index.html" class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <div class="icons">
             <div class="dropdown">
-
+                <select id="role">
+                    <option value="admin">Admin</option>
+                    <option value="parents">Parents</option>
+                    <option value="teacher">Teacher</option>
+                </select>
                 <i class="fas fa-user"></i>
             </div>
         </div>
@@ -30,41 +35,25 @@
 
         <div class = "form-box">
             <h1> Sign In</h1>
-            <form class="form-reg" action="/" method="post">
+            <form class="form-reg">
                 <div class="input-group">
-                    
-                    {% if role == role_list.PARENT %}
-                    <div class="input-field" id="input-parent">
-                        <i class="fa-solid fa-child"></i>
-                        <input type="email" placeholder="Child ID">
-                    </div>
-                    {% else %}
                     <div class="input-field" id="input-admin-teacher">
                         <i class="fa-solid fa-envelope"></i>
                         <input type="email" placeholder="Email">
                     </div>
-                    {% endif %}
+                                   
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>    
                         <input type="password" placeholder="Password">            
                     </div>
                     
-                        <div class="btn-field-login" >
+                        <div class="btn-field-login">
                             <button type="button"> Login</button>
                         </div>
                     
                 </div>
                
-                <div class="icons">
-                    <div class="dropdown">
-                        <select id="role">
-                            <option value="admin">Admin</option>
-                            <option value="parents">Parents</option>
-                            <option value="teacher">Teacher</option>
-                        </select>
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
+                <p>Lost password ?<a href="#"> Click Here!</a></p>
               
                
             </form>

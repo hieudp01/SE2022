@@ -154,87 +154,42 @@
           text-transform: capitalize;
         }
         
-        .header .login-form p{
-          font-size: 1.4rem;
-          padding: .5rem 0;
-          color: var(--light-color);
-        }
-        
-        .header .login-form p a{
-          color: var(--orange);
-          text-decoration: underline;
-        }
         
         
         
         /* header ends */
 
-        /* information of child */
-        .child 
-        {
-          min-height: 100vh;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1.5rem;
-          align-items: center;
-          position: relative;
-          background-color: (var(--orange));
-        }
-        
-        .child h1{
-          font-size: 30px;
-          margin-bottom: 60px;
-          color: #1d1c1c;
-          position:static
-        }
-        .child .child-container
-        {
-          position:relative;
-          display:flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
       
-        }
 
-        /*.child .child-container:after 
-        {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-
-        }*/
-        /* Apply a basic layout to the form */
+      
         /* feedback */
 
-        
-        .feedback
-        {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 2rem;
-          background-color: #e9768f;
-          justify-content: center;
+        .feedback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* This will make the section cover the entire viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(to right,#ff4b4b, #e9768f);
         }
 
         .feedback-box
         {
-          margin: 20px 100px 20px 50px;
-          background: #fff;
-          padding: 20px 100px;
-          border-radius: 10px;
+            margin: 50px;
+            background: #fff;
+            padding: 40px 100px;
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center;
           
         }
         .feedback h1{
-          font-size: 30px;
-          margin-bottom: 60px;
-          color: #1d1c1c;
-          position: relative;
+            font-size: 30px;
+            color: #1d1c1c;
+            position: relative;
         }
 
         .feedback h1::after{
@@ -250,7 +205,7 @@
         }
 
         .input-field{
-          padding: 10px;
+          padding: 30px;
           display: flex;
           flex-direction: column;
           align-items:baseline;
@@ -261,14 +216,12 @@
         {
           width: 100px;
           height: 100px;
-          border-radius: 50%;
           margin-bottom: 30px;
           overflow: hidden;
         }
-        .feedback input{
+        input{
           width: 100%;
-          background: transparent;
-          border: 0;
+          border: 10px;
           outline: 0;
           margin: 20px;
           padding: 18px 20px 20px 18px;
@@ -276,7 +229,11 @@
 
         .emoji img{
           width: 80px;
+          height: 80px;
           margin: 0 10px;
+          border-radius: 50%;
+          margin-bottom: 30px;
+          background: #000;
         }
         
 
@@ -293,94 +250,7 @@
           color: #e4e4e4;
         }
 
-        .input-group{
-          height: 200px;
-        }
-        /* meal */
-        .meal .box-container{
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-          gap: 1.5rem;
-        }
-
-        .meal .box-container .box{
-          padding: 3rem 2rem;
-          text-align: center;
-          box-shadow: var(--box-shadow);
-          border-radius: 2rem;
-          outline: .1rem solid rgba(0,0,0,.1);
-          outline-offset: -1rem;
-        }
-
-        .meal .box-container .box img{
-          height: 17rem;
-        }
-
-        .meal .box-container .box:hover img{
-          transform: scale(1.1);
-        }
-
-        .meal .box-container .box h3{
-          font-size: 1.8rem;
-          padding: 2rem 3rem;
-          color: var(--black);
-        }
-        /* footer */
         
-        .footer{
-          background: var(--pink);
-        }
-        
-        .footer .box-container{       
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
-          gap: 1.5rem;
-        }
-        
-        .footer .box-container .box h3{
-          font-size: 2.2rem;
-          color: var(--orange);
-          padding: 1rem 0;
-        }
-        
-        .footer .box-container .box p{
-          font-size: 1.5rem;
-          color: var(--white);
-          padding: 1rem 0;
-          line-height: 2;
-        }
-        
-        .footer .box-container .box a{
-          display: block;
-          font-size: 1.4rem;
-          color: var(--white);
-          padding: 1rem 0;
-        }
-        
-        .footer .box-container .box a:hover{
-          color: var(--orange);
-        }
-        
-        .footer .box-container .box a i{
-          padding-right: .5rem;
-          color: var(--orange);
-        }
-        
-        .footer .credit{
-          margin-top: 2.5rem;
-          padding: 1rem;
-          padding-top: 2rem;
-          border-top: .1rem solid rgba(0,0,0,.3);
-          text-align: center;
-          color: var(--white);
-          font-size: 2rem;
-        }
-        
-        .footer .credit span{
-          color: var(--orange);
-        }
-        
-        /* end */
         
         /* media query */
         
@@ -445,103 +315,8 @@
         /* register form */
         /* Add a background image to the "home" section */
         
-        .reg {
-          background-image: url('https://wallpapercave.com/wp/wp2346089.jpg'); /* Replace with the actual path to your image */
-          background-size: cover; /* or 'contain' if you want the image to fit inside the section */
-          background-position: center; /* adjust the positioning as needed */
-          background-repeat: no-repeat;
-          /* Other styles for spacing, padding, etc. */
-          padding: 20px;
-          min-height: 800px;
-        }
-        
-        
-        .form-box
-        {
-          width:90%;
-          max-width: 450px;
-          position:absolute;
-          top: 55%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #fff;
-          padding: 50px 60px 70px;
-          text-align: center;
-        
-        }
-        
-        
-        .form-box h1{
-          font-size: 30px;
-          margin-bottom: 60px;
-          color: #f9ba60;
-          position: relative;
-        }
-        
-        .form-box h1::after{
-          content: '';
-          width: 30px;
-          height: 4px;
-          border-radius: 3px;
-          background: #f9ba60;
-          position:absolute;
-          bottom: -12px;
-          left:50%;
-          transform: translateX(-50%);
-        }
-        
-        .input-field{
-          background: #eaeaea;
-          margin: 15px 0;
-          border-radius: 3px;
-          display: flex;
-          align-items: center;
-        }
-        
-        input{
-          width: 100%;
-          background: transparent;
-          border: 0;
-          outline: 0;
-          padding: 18px 15px;
-        }
-        
-        .input-field i{
-          margin-left: 15px;
-          color: #9999;
-        }
-        
-        .form-reg p{
-          text-align: cemter;
-          font-size: 13px;
-        }
-        
-        .form-reg p a{
-          text-decoration: none;
-          color: #f9ba60;
-        }
-        
-        .form-reg .btn-field-login{ 
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-        }
-        
-        .form-reg .btn-field-login button{
-          flex-basis: 50%;
-          background: #f9ba60;
-          color: #fff;
-          height: 40px;
-          border-radius:  20px;
-          border: 0;
-          outline: 0;
-          cursor:pointer;
-          transition:   1s;
-        }
-        
-        .input-group{
-          height: 200px;
-        }</style>
+       
+        </style>
 </head>
 <body>
 
@@ -565,15 +340,13 @@
 
   
   
-      
-      
-  
     <!-- footer section ends -->
    <section class="feedback" id="feedback">
     <h1>Give Feedback</h1>
   
    
      <div class="feedback-box">
+        <form>
         <div  class="input-field">
             <div  class="teacher-name">
                 <input type="text" id="teacher" name="teacher" placeholder="Enter teacher's name...">
@@ -582,6 +355,7 @@
                 <input type="text" id="comment" name="comment" placeholder="Make Comment">
             </div>
          </div>
+        </form>
         <div class="emoji">
             <h2>Rate</h2>
             <div id="emoji2"> 
@@ -598,8 +372,13 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
-
+     
         </div>
+
+
+       <button id="myButton" class="btn-primary" type="button" onclick="alert('Button Clicked!')">Click Me</button>
+       <span id="errorMessage" class="error-message"></span>
+
      </div>
    </section>
    
