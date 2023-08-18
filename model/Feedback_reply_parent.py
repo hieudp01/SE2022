@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from model.Base import Base
 
 
-class Feedback(Base):
+class Feedback_reply_parent(Base):
     __tablename__ = 'feedback_reply_parent'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
