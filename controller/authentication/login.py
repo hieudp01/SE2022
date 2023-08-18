@@ -3,13 +3,14 @@ from flask import Blueprint, render_template, request, session, url_for
 from model.Children import Children
 from model.Parent import Parent
 from controller.authentication import utils
+from model.role import Role
 
 authentication = Blueprint('login', __name__, url_prefix='/login')
 
 
 @authentication.get('/')
 def parent_page():
-    return render_template('authentication/login.html')
+    return render_template('authentication/login.html', role=Parent.get_role(), role_list=Role)
 
 
 # @auth.post('/add-parent')
@@ -23,7 +24,6 @@ def parent_page():
 #         session.add(parent)
 #         session.commit()
 #     return "ok"
-
 
 @authentication.post('/')
 def login():
