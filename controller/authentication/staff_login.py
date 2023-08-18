@@ -7,7 +7,7 @@ staff_auth = Blueprint('login', __name__, url_prefix='/login', subdomain='staff'
 
 @staff_auth.get('/teacher')
 def teacher_page():
-    return render_template('authentication/login.html', role=Role.TEACHER)
+    return render_template('authentication/login.html', role=Role.TEACHER, role_list=Role)
 
 
 @staff_auth.post('/teacher')

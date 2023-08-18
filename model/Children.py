@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Date
 
 from model.Base import Base
-from model.Class import Class
 
 
 class Children(Base):

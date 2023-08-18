@@ -1,17 +1,26 @@
 trang này cả teacher và parent đều truy cập được
 <br>
-feedback:
-{{ feedback_post.teacher_id }}
+posted by:
+{{ feedback_post.Teacher.name }}
 <br>
-comment trong feedback:
-{{ feedback_comment }}
+feedback comment:
+{% for comment in feedback_comment %}
+    <br>
+    {{ comment[1].name }}
+    <br>
+    {{ comment[0].time }}
+    <br>
+    {{ comment[0].content }}
+    <br>
+{% endfor %}
 <br>
 
 cái form  để submit comment.
-{% if session.user.role== Role.PARENT %}
-    {% set link=url_for('parent.feedback.comment') %}
-{% elif ['user']['role']== Role.TEACHER %}
-    {% set link=url_for('teacher.feedback.comment') %}
+<br>
+{% if session['user']['role'] == Role.PARENT.value %}
+    {% set link=url_for('parent.feedback.comment',feedback_id=feedback_post.Feedback.id) %}
+{% elif session['user']['role'] == Role.TEACHER.value %}
+    {% set link=url_for('teacher.feedback.comment',feedback_id=feedback_post.Feedback.id) %}
 {% endif %}
 <br>
 <form action="{{ link }}" method="post">
