@@ -42,7 +42,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // Assuming you've verified the credentials and role
     if (role === "parent") {
         // Redirect to parent.html
-        window.location.href = "parent/parent.html";
+        window.location.href = "index/parent.html";
     } else if (role === "teacher") {
         // Redirect to teacher.html
         window.location.href = "teacher/teacher.html";

@@ -1,33 +1,31 @@
-from flask import Blueprint, render_template, request, session
-from sqlalchemy.orm import Session
+from flask import Blueprint, render_template, request, session, url_for
 
-from db_config import engine
 from model.Children import Children
 from model.Parent import Parent
 from controller.authentication import utils
 
-auth = Blueprint('login', __name__, url_prefix='/login')
+authentication = Blueprint('login', __name__, url_prefix='/login')
 
 
-@auth.get('/')
+@authentication.get('/')
 def parent_page():
     return render_template('authentication/login.html')
 
 
-@auth.post('/add-parent')
-def add_parent():
-    with Session(engine) as session:
-        parent = Parent()
-        parent.name = request.form['name']
-        parent.email = request.form['email']
-        parent.phone = request.form['phone']
-        parent.password = utils.hash_password(request.form['password'])
-        session.add(parent)
-        session.commit()
-    return "ok"
+# @auth.post('/add-parent')
+# def add_parent():
+#     with Session(engine) as session:
+#         parent = Parent()
+#         parent.name = request.form['name']
+#         parent.email = request.form['email']
+#         parent.phone = request.form['phone']
+#         parent.password = utils.hash_password(request.form['password'])
+#         session.add(parent)
+#         session.commit()
+#     return "ok"
 
 
-@auth.post('/')
+@authentication.post('/')
 def login():
     if request.form.get("username") is None or request.form.get("password") is None:
         return render_template('authentication/login.html', error="Username or password is empty")
@@ -45,6 +43,6 @@ def login():
         "name": parent.name,
         "email": parent.email,
         "phone": parent.phone,
-        "role": Parent.role.value
+        "role": Parent.get_role()
     }
-    return render_template('parent/index.html')
+    return url_for('index_parent.parent_main')
