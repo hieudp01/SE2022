@@ -1,5 +1,7 @@
 from sqlalchemy.orm import DeclarativeBase
 
+from db_config import db_session
+
 
 class Base(DeclarativeBase):
-    pass
+    query = db_session.query_property()
