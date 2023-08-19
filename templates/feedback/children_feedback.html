@@ -1,7 +1,523 @@
-bấm vào từng feedback để xem chi tiết
+<!--bấm vào từng feedback để xem chi tiết
 <br>
 {% for feedback in feedback_list %}
     <a href="{{ url_for("parent.feedback.view_detail",feedback_id=feedback.id) }}">
         feedback on {{ feedback.time }}
     </a>
+% endfor %-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK Kindergarten</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- lightgallery css cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+   
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+        :root{
+            --orange:#f9ba60;
+            --pink:#e9768f;
+            --black: #1d1c1c;
+            --white: #fff;
+            --light-color:#666;
+            --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+        }
+        
+        *{
+          font-family: 'Poppins', sans-serif;
+          margin: 0; padding: 0;
+          box-sizing: border-box;
+          outline: none; border: none;
+          text-decoration: none;
+          text-transform: capitalize;
+          transition: all .2s linear;
+          background-image: ;
+        }
+        
+        html{
+          font-size: 62.5%;
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+        }
+        
+        
+        
+        
+        
+       
+        
+        /* header */
+        
+        .header{
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2rem 9%;
+          max-height: 100px;
+          background: var(--white);
+          box-shadow: var(--box-shadow);
+        }
+        
+        .header .logo{
+          font-size: 2.5rem;
+          font-weight: bolder;
+          color: var(--black);
+        }
+        
+        .header .logo i{
+          color: var(--orange);
+        }
+        
+        .header .navbar a{
+          font-size: 1.7rem;
+          margin: 0 1rem;
+          color: var(--black);
+        }
+        
+        .header .navbar a:hover,
+        .header .icons div:hover{
+          color: var(--orange);
+        }
+        
+        .header .icons div{
+          font-size: 2.5rem;
+          margin-left: 1.7rem;
+          color: var(--black);
+          cursor: pointer;
+        }
+        
+        #menu-btn{
+          display: none;
+        }
+        
+        .header .login-form{
+          position: absolute;
+          top: 110%; right: -110%;
+          width: 35rem;
+          box-shadow: var(--box-shadow);
+          padding: 100px;
+          border-radius: .5rem;
+          background: var(--white);
+          text-align: center;
+        }
+        
+        .header .login-form.active{
+          right: 2rem;
+          transition: .4s linear;
+        }
+        
+        .header .login-form h3{
+          font-size: 2.5rem;
+          text-transform: uppercase;
+          color: var(--black);
+        }
+        
+        .header .login-form .box{
+          width: 100%;
+          margin: .7rem 0;
+          background: #eee;
+          border-radius: .5rem;
+          padding: 1rem;
+          font-size: 1.6rem;
+          color: var(--black);
+          text-transform: capitalize;
+        }
+        
+        
+        
+        
+        /* header ends */
+
+      
+
+      
+        /* feedback */
+
+        section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to right,#ff4b4b, #e9768f);
+            margin: 5% 0px 0px 0px;
+        }
+
+        .feedback-box
+        {
+            margin: 50px;
+            background: #fff;
+            padding: 40px 100px;
+            border-radius: 10px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+          
+        }
+
+        
+      
+
+        .view_wrap {
+            padding: 20px;
+        }
+
+        .vi-right {
+            font-size: 200px;
+            
+        }
+
+        
+        .view_item img{
+            width:200px;
+        }
+
+        .view_main{
+            background:#fff;
+            border-radius: 3px;
+            padding: 15px;
+        }
+
+        .list_view .view_item 
+        {
+            border: 1px solid #e2efe1;
+            margin: 10px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .list_view .view_item:last-child{
+            margin-bottom: 0;
+        }
+
+        .list-view .view_item .vi-left{
+            margin-right: 20px;
+        }
+
+        .view_item .title {
+            font-weight: 600;
+        }
+
+        .view_item .content {
+            margin: 5px 0;
+            font-size:  100px;
+            line-height: 22px;
+            font-weight: 200;
+        }
+
+        .btn{
+          font-size: 1.7rem;
+          margin-top: 1rem;
+          display: inline-block;
+          padding: .8rem 3rem;
+          border-radius: .5rem;
+          border: .2rem solid var(--orange);
+          color: var(--orange);
+          background: none;
+          cursor: pointer;
+        }
+        
+        .btn:hover{
+          background: var(--orange);
+          color: var(--white);
+        }
+         
+        .form-fb
+        {
+          display:flex;
+          position:absolute;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          width: 40%;
+          height: 85%;
+          padding:20px 20px;
+          border-radius: 24px;
+        
+        }
+
+    
+        
+        
+        .form-fb h1{
+            font-size: 30px;
+            color: #1d1c1c;
+            position:relative;
+        }
+
+        .form-fb i{
+           position: absolute;
+           right: 20px;
+           top: 10px;
+        }
+
+        .form-fb i:hover{
+          
+           color:red;
+           
+        }
+
+        .form-fb h1::after{
+          content: '';
+          width: 30px;
+          height: 4px;
+          border-radius: 3px;
+          background: #f9ba60;
+          position:absolute;
+          bottom: -12px;
+          left:50%;
+          transform: translateX(-50%);
+        }
+     
+
+        .form-fb .pop-btn
+        {
+          font-size: 1.7rem;
+          display: inline-block;
+          padding: .8rem 3rem;
+          border-radius: .5rem;
+          border: .2rem solid var(--orange);
+          color: var(--black);
+          background: none;
+          cursor: pointer;
+
+        }
+
+        .form-fb .pop-btn:hover{
+          background: linear-gradient(to right,#ff4b4b, #e9768f);
+          color: var(--white);
+        }
+         
+        .form-fb i {
+          font-size: 70px;
+          
+        }
+
+        .feedback-comment
+        {
+          margin: 10%;
+        }
+        
+
+        .form-fb input {
+          width: 100%;
+          font-size: 20px;
+          border-color: black;
+          border-radius: 3px;
+          box-sizing: border-box;
+        }
+
+        .form-fb input,
+        .form-fb textarea{
+          font-size: 1.6rem;
+          border: 0.1rem solid rgba(0,0,0,.3);
+          border-radius: 1rem;
+          padding: 1rem 1.2rem;
+          color: var(--black);
+          margin: 1rem 0;
+        }
+        
+        #comment,
+        .form-fb textarea {
+            font-size: 1.6rem;
+            border: 0.1rem solid rgba(0,0,0,.3);
+            border-radius: 1rem;
+            padding: 1rem 1.2rem 15rem;
+            color: var(--black);
+            margin: 1rem 0;
+            overflow: auto;
+        }
+
+        
+
+        
+        
+        /* media query */
+        
+        @media (max-width:991px){
+        
+          html{
+            font-size: 55%;
+          }
+        
+          .header{
+            padding: 2rem 3rem;
+          }
+        
+          section{
+            padding: 3rem;
+          }
+        
+        }
+        
+        @media (max-width:768px){
+        
+          #menu-btn{
+            display: inline-block;
+          }
+        
+          .header .navbar{
+            position: absolute;
+            top: 110%; right: -110%;
+            width: 30rem;
+            box-shadow: var(--box-shadow);
+            border-radius: .5rem;
+            background: var(--white);
+          }
+        
+          .header .navbar.active{
+            right: 2rem;
+            transition: .4s linear;
+          
+          }
+        
+          .header .navbar a{
+            font-size: 2rem;
+            margin: 2rem 2.5rem;
+            display: block;
+          }
+        
+          .home .content h3{
+            font-size: 4.5rem;
+          }
+        
+        }
+        
+        @media (max-width:450px){
+          html{
+            font-size: 50%;
+          }
+          .home .content h3{
+            font-size: 3.5rem;
+          }
+        }
+        
+        
+        /* register form */
+        /* Add a background image to the "home" section */
+        
+       
+        </style>
+</head>
+<body>
+
+    <!-- header section starts -->
+
+    <header class="header">
+
+        <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
+        <nav class="navbar">
+            <a href="child.html">Child</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="meal.html">meal</a>
+            <a href="fee.html">Fees</a>
+            <a href="parent.html">Back</a>
+        </nav>
+      
+
+    </header>
+
+    <!-- header section ends -->
+
+  
+  
+    <!-- footer section ends -->
+   <section>
+    <div class="form-fb" style="display:none">
+      <h1>Feedback Form</h1>
+      <i class="fa fa-window-close" id="close" style="font-size: 25px;" aria-hidden="true"></i>
+
+      <div class="feedback-comment">
+        <input type="text" id="name" placeholder="Teacher...">
+        <input type="text" id="comment" name="comment" placeholder="Comment...">
+      </div>
+
+      <button class="pop-btn">Submit Feedback</button>
+
+    </div>
+    
+    <div class="feedback-box">
+      
+        <div class="view_main">
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://st.depositphotos.com/1000619/2104/i/450/depositphotos_21040809-stock-photo-little-girl-on-the-beach.jpg">
+                
+              </div>
+              <div class="vi_right">
+                <p class="name"> Name: </p>
+                <p class="class">Class: </p>
+                <button class="btn">More</button>  
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+   
+        
+    
+   </section>
+   
+   
+    <!-- lightgallery cdn js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <!-- custom js file link -->
+    <script>
+        document.querySelector('.btn').addEventListener('click', function() {
+            document.querySelector('.form-fb').style.display = '';
+       });
+       document.querySelector('#close').addEventListener('click', function() {
+            document.querySelector('.form-fb').style.display = 'none';
+       });
+    </script>
+    <!--trang này cả teacher và parent đều truy cập được
+<br>
+posted by:
+{{ feedback_post.Teacher.name }}
+<br>
+feedback comment:
+{% for comment in feedback_comment %}
+    <br>
+    {{ comment[1].name }}
+    <br>
+    {{ comment[0].time }}
+    <br>
+    {{ comment[0].content }}
+    <br>
 {% endfor %}
+<br>
+
+cái form  để submit comment.
+<br>
+{% if session['user']['role'] == Role.PARENT.value %}
+    {% set link=url_for('parent.feedback.comment',feedback_id=feedback_post.Feedback.id) %}
+{% elif session['user']['role'] == Role.TEACHER.value %}
+    {% set link=url_for('teacher.feedback.comment',feedback_id=feedback_post.Feedback.id) %}
+{% endif %}
+<br>
+<form action="{{ link }}" method="post">
+    <input type="text" name="comment" placeholder="comment">
+    <input type="submit" value="submit">
+</form>-->
+</body>
+</html>
+

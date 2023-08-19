@@ -525,7 +525,7 @@ section{
 .contact .row form .inputBox{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  
 }
 
 .contact .row form .inputBox input{
@@ -539,7 +539,7 @@ section{
   border-radius: 0.5rem;
   padding: 1rem 1.2rem;
   color: var(--black);
-  margin: .7rem 0;
+  margin: 20rem 0;
 }
 
 .contact .row form .inputBox input:focus,
