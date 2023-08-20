@@ -1,14 +1,10 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-from datetime import date
+from datetime import date, timedelta
 
 from controller.authentication.middleware import parent_required
 from controller.feedback.feedback import *
+from model.Children import Children
 from model.Feedback import Feedback
-from model.Feedback_reply_parent import FeedbackParent
-from model.Feedback_reply_teacher import FeedbackTeacher
-from model.Parent import Parent
-from model.Teacher import Teacher
-from db_config import db_session
 
 feedback = Blueprint('feedback', __name__, url_prefix='/feedback')
 
@@ -16,34 +12,29 @@ feedback = Blueprint('feedback', __name__, url_prefix='/feedback')
 @feedback.get('/')
 @parent_required
 def index():
-    children = session.get('children', [])
-    children_list = []
-    for child in children:
-        latest_feedback = Feedback.query.where(Feedback.child_id == child['id']).order_by(Feedback.time).first()
-        if latest_feedback is not None and latest_feedback.time.date() == date.today():
-            today_feedback = latest_feedback
-        else:
-            today_feedback = None
-        children_feedback = {
-            'child': child,
-            'feedback': today_feedback
-        }
-        children_list.append(children_feedback)
-    return render_template('feedback/parent.html', children_list=children_list)
+    rows = db_session.query(Children, Feedback).join(Feedback).filter(Children.parent_id == session['user']['id']) \
+        .filter(Feedback.time >= date.today(),
+                Feedback.time < date.today() + timedelta(days=1)).all()
+
+    # if len(rows.Children) != len(tuple(rows.Children)):
+    #     return render_template('error.html',
+    #                            error='Database error, one child have multiple feedbacks today. Please contact teachers')
+
+    return render_template('feedback/parent.html', rows=rows)
 
 
-@feedback.get('/<child_id>')
+@feedback.get('/child/<child_id>')
 @parent_required
-def view(child_id):
+def child(child_id):
     if child_id is None or child_id not in [child['id'] for child in session['children']]:
         return render_template('error.html', error='Child id is not valid')
 
-    return view_all_feedback_of_child(child_id)
+    return view_all_feedback_of_child(child_id, "parent.feedback.detail")
 
 
 @feedback.get('/detail/<feedback_id>')
 @parent_required
-def view_detail(feedback_id):
+def detail(feedback_id):
     if feedback_id is None:
         return render_template('error.html', error='Feedback id is not valid')
 
@@ -57,17 +48,4 @@ def comment(feedback_id):
     if feedback_post is None or feedback_post.child_id not in [child['id'] for child in session['children']]:
         return render_template('error.html', error='Feedback id is not valid')
 
-    content = request.form.get('comment', '')
-    content = content.strip()
-
-    if len(content) >= 500:
-        return render_template('error.html', error='Comment is too long')
-
-    if len(content) == 0:
-        return render_template('error.html', error='Empty Comment')
-
-    feedback_comment = FeedbackParent(content=content, parent_id=session['user']['id'], feedback_id=feedback_id)
-    db_session.add(feedback_comment)
-    db_session.commit()
-
-    return view_detail(feedback_id)
+    return post_comment(request.form.get('comment', ''), Role.PARENT, detail, feedback_id)

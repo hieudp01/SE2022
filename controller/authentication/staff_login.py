@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 
 from controller.authentication import utils
+from model.Children import Children
 from model.Teacher import Teacher
 from model.role import Role
 
@@ -33,4 +34,8 @@ def login():
         "class_id": teacher.class_id
     }
 
+    children_list = Children.query.where(Children.class_id == session['user']['class_id']).all()
+    allowed_children = [child.id for child in children_list]
+
+    session['children'] = allowed_children
     return redirect(url_for('teacher.index'))

@@ -35,9 +35,7 @@ def login():
     }
 
     children = Children.query.where(Children.parent_id == parent.id).join(Class).all()
-    for idx, child in enumerate(children):
-        children[idx] = child.__dict__
-        children[idx].pop('_sa_instance_state', None)
+    allowed_children = [child.id for child in children]
 
-    session['children'] = children
+    session['children'] = allowed_children
     return redirect(url_for('parent.index'))

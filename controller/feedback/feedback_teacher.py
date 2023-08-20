@@ -26,6 +26,7 @@ def index():
 @feedback.post('/post')
 @teacher_required
 def post():
+    # TODO: check if child already has feedback today
     child_id = request.form.get('child_id')
     feedback_content = request.form.get('feedback', '').strip()
     if child_id is None or feedback_content == '':
@@ -53,22 +54,31 @@ def post():
     }
 
 
-@feedback.get('/<child_id>')
+@feedback.get('/child/<child_id>')
 @teacher_required
-def view(child_id):
+def child(child_id):
     if child_id is None or Children.query.where(Children.class_id == session['user']['class_id']).one_or_none() is None:
         return render_template('error.html', error='Child id is not valid')
 
-    return view_all_feedback_of_child(child_id)
+    return view_all_feedback_of_child(child_id, "teacher.feedback.detail")
 
 
 @feedback.get('/detail/<feedback_id>')
 @teacher_required
-def view_detail(feedback_id):
+def detail(feedback_id):
     if feedback_id is None:
         return render_template('error.html', error='Feedback id is not valid')
-    allowed_children = Children.query.where(Children.class_id == session['user']['class_id']).all()
-    for idx, child in enumerate(allowed_children):
-        allowed_children[idx] = child.id
-    #    TODO: chua xong
-    return view_one_feedback_of_child(feedback_id, allowed_children)
+    return view_one_feedback_of_child(feedback_id, session['children'])
+
+
+@feedback.post('/comment/<feedback_id>')
+@teacher_required
+def comment(feedback_id):
+    feedback_post = Feedback.query.where(Feedback.id == feedback_id).one_or_none()
+
+    if feedback_post is None or feedback_post.child_id not in session['children']:
+        return {
+            "status": "error", "message": "Feedback id is not valid"
+        }
+
+    return post_comment(request.form.get('comment', ''), Role.TEACHER, detail, feedback_id)

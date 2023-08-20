@@ -1,7 +1,7 @@
 bấm vào từng feedback để xem chi tiết
 <br>
 {% for feedback in feedback_list %}
-    <a href="{{ url_for("parent.feedback.view_detail",feedback_id=feedback.id) }}">
+    <a href="{{ url_for(feedback_url,feedback_id=feedback.id) }}">
         feedback on {{ feedback.time }}
     </a>
 {% endfor %}

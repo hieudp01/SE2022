@@ -1,10 +1,10 @@
 hiện ra list child kèm với list feedback hôm nay của child đó, bấm vào child để xem list các feedback cũ, bấm vào feedback hôm nay để xem chi tiết feedback
 
-{% for child in children_list %}
-    <h3>Children: {{ child.child.name }}</h3>
+{% for each_row in rows %}
+    <h3>Children: {{ each_row.Children.name }}</h3>
     <h4>Today feedback</h4>
-    {% if child.feedback != none %}
-        <p>{{ child.feedback.__dict__ }}</p>
+    {% if each_row.Feedback != none %}
+        <p>{{ each_row.Feedback.__dict__ }}</p>
     {% else %}
         <p>Teacher haven't posted feedback today</p>
     {% endif %}
