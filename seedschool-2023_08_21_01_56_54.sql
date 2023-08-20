@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `absent_request`
+--
+
+DROP TABLE IF EXISTS `absent_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `absent_request` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `child_id` varchar(8) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `absent_request_children_id_fk` (`child_id`),
+  CONSTRAINT `absent_request_children_id_fk` FOREIGN KEY (`child_id`) REFERENCES `children` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `absent_request`
+--
+
+LOCK TABLES `absent_request` WRITE;
+/*!40000 ALTER TABLE `absent_request` DISABLE KEYS */;
+INSERT INTO `absent_request` (`id`, `child_id`, `time`) VALUES (4,'20231823','2023-08-21 01:55:43');
+/*!40000 ALTER TABLE `absent_request` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `attendance`
 --
 
@@ -24,13 +51,13 @@ DROP TABLE IF EXISTS `attendance`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attendance` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `children_id` varchar(8) NOT NULL,
+  `child_id` varchar(8) NOT NULL,
   `img_name` varchar(50) NOT NULL,
   `time` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `checkin_children_id_fk` (`children_id`),
-  CONSTRAINT `checkin_children_id_fk` FOREIGN KEY (`children_id`) REFERENCES `children` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `checkin_children_id_fk` (`child_id`),
+  CONSTRAINT `checkin_children_id_fk` FOREIGN KEY (`child_id`) REFERENCES `children` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +66,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` (`id`, `children_id`, `img_name`, `time`) VALUES (1,'20231823','20231823 img','2023-08-19 05:48:34');
+INSERT INTO `attendance` (`id`, `child_id`, `img_name`, `time`) VALUES (1,'20231823','20231823 img','2023-08-20 05:48:34'),(2,'20231823','20231823 img4','2023-08-20 05:48:34');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +144,7 @@ CREATE TABLE `feedback` (
   KEY `feedback_children_id_fk` (`child_id`),
   CONSTRAINT `feedback_children_id_fk` FOREIGN KEY (`child_id`) REFERENCES `children` (`id`),
   CONSTRAINT `feedback_teacher_id_fk` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +153,7 @@ CREATE TABLE `feedback` (
 
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
-INSERT INTO `feedback` (`id`, `content`, `teacher_id`, `time`, `child_id`) VALUES (2,'bruh',1,'2023-08-19 01:02:26','20231823'),(3,'bruh',1,'2023-08-19 06:27:27','20231823');
+INSERT INTO `feedback` (`id`, `content`, `teacher_id`, `time`, `child_id`) VALUES (2,'bruh',1,'2023-08-19 01:02:26','20231823'),(3,'bruh',1,'2023-08-19 06:27:27','20231823'),(4,'bruh',1,'2023-08-20 00:22:51','20231823'),(6,'hehe',1,'2023-08-21 00:20:26','20231823');
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +206,7 @@ CREATE TABLE `feedback_reply_teacher` (
   KEY `feedback_reply_teacher_feedback_id_fk` (`feedback_id`),
   CONSTRAINT `feedback_reply_teacher_feedback_id_fk` FOREIGN KEY (`feedback_id`) REFERENCES `feedback` (`id`),
   CONSTRAINT `feedback_reply_teacher_teacher_id_fk` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +215,7 @@ CREATE TABLE `feedback_reply_teacher` (
 
 LOCK TABLES `feedback_reply_teacher` WRITE;
 /*!40000 ALTER TABLE `feedback_reply_teacher` DISABLE KEYS */;
-INSERT INTO `feedback_reply_teacher` (`id`, `content`, `teacher_id`, `feedback_id`, `time`) VALUES (1,'t cmt 1',1,2,'2023-08-10 01:34:34'),(2,'t cmt 2',1,2,'2023-08-22 01:34:34');
+INSERT INTO `feedback_reply_teacher` (`id`, `content`, `teacher_id`, `feedback_id`, `time`) VALUES (1,'t cmt 1',1,2,'2023-08-10 01:34:34'),(2,'t cmt 2',1,2,'2023-08-22 01:34:34'),(3,'hee he',1,4,'2023-08-20 01:04:39'),(4,'bruh',1,4,'2023-08-20 01:04:56'),(5,'hello',1,6,'2023-08-21 00:23:16'),(6,'hello',1,6,'2023-08-21 00:23:20'),(7,'hello',1,6,'2023-08-21 00:23:20'),(8,'hello',1,6,'2023-08-21 00:23:21');
 /*!40000 ALTER TABLE `feedback_reply_teacher` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-19  6:49:09
+-- Dump completed on 2023-08-21  1:56:55

@@ -27,16 +27,16 @@ def register_blueprint():
 
 
 def register_parent_blueprint():
-    from controller.checkin.parent.route import checkin
+    from controller.attendance.attendance_parent import attendance
     from controller.feedback.feedback_parent import feedback
-    parent_route.register_blueprint(checkin)
+    parent_route.register_blueprint(attendance)
     parent_route.register_blueprint(feedback)
 
 
 def register_teacher_blueprint():
-    from controller.checkin.teacher.route import checkin
+    from controller.attendance.attendance_teacher import attendance
     from controller.feedback.feedback_teacher import feedback
-    teacher_route.register_blueprint(checkin)
+    teacher_route.register_blueprint(attendance)
     teacher_route.register_blueprint(feedback)
 
 

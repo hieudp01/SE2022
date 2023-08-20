@@ -1,1 +1,19 @@
-check in teacher
+not checked-in children<br>
+{% for child in absent_children %}
+    {{ child.name }}<br>
+    {{ child.DOB }}<br>
+    <button>submit checkin picture</button><br>
+{% endfor %}
+<br><br><br>
+absent children<br>
+{% for child in absent_requested_children %}
+    {{ child.name }}<br>
+    {{ child.DOB }}<br>
+{% endfor %}
+<br><br><br>
+checked-in children<br>
+{% for child in attended_children %}
+    {{ child.name }}<br>
+    {{ child.DOB }}<br>
+{% endfor %}
+```

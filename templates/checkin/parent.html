@@ -1,1 +1,15 @@
-check in parent
+attend:<br>
+{% for child in attend_children %}
+    child name:{{ child.Children.name }}<br>
+    child class:{{ child.Class.name }}<br>
+    <button>check-in image</button><br>
+    ---------------------------------<br>
+{% endfor %}
+
+
+absent: <br>
+{% for child in absent_children %}
+    child name:{{ child.Children.name }}<br>
+    child class:{{ child.Class.name }}<br>
+    ---------------------------------<br>
+{% endfor %}
