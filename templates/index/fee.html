@@ -121,59 +121,116 @@
           display: none;
         }
         
-        .header .login-form{
-          position: absolute;
-          top: 110%; right: -110%;
-          width: 35rem;
-          box-shadow: var(--box-shadow);
-          padding: 2rem;
-          border-radius: .5rem;
-          background: var(--white);
-          text-align: center;
-        }
-        
-        .header .login-form.active{
-          right: 2rem;
-          transition: .4s linear;
-        }
-        
-        .header .login-form h3{
-          font-size: 2.5rem;
-          text-transform: uppercase;
-          color: var(--black);
-        }
-        
-        .header .login-form .box{
-          width: 100%;
-          margin: .7rem 0;
-          background: #eee;
-          border-radius: .5rem;
-          padding: 1rem;
-          font-size: 1.6rem;
-          color: var(--black);
-          text-transform: capitalize;
-        }
-        
-        .header .login-form p{
-          font-size: 1.4rem;
-          padding: .5rem 0;
-          color: var(--light-color);
-        }
-        
-        .header .login-form p a{
-          color: var(--orange);
-          text-decoration: underline;
-        }
-        
         
         
         /* header ends */
-        
-        .container 
-        {
-            max-height: 280px;
+        .contact {
+          min-height: 100vh;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          align-items: center;
+          position: relative;
         }
-       
+        .contact .icons-container{
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+          gap: 2rem;
+        }
+
+        .contact .icons-container .icons{
+          padding: 2rem;
+          box-shadow: var(--box-shadow);
+          border-radius: 2rem;
+          text-align: center;
+          outline: .1rem solid rgba(0,0,0,.1);
+          outline-offset: -1rem;
+        }
+
+        .contact .icons-container .icons i{
+          font-size: 2.5rem;
+          height: 6rem;
+          width: 6rem;
+          color: var(--white);
+          line-height: 6rem;
+          border-radius: 50%;
+          background: var(--orange);
+        }
+
+        .contact .icons-container .icons h3{
+          font-size: 2.2rem;
+          padding: 1rem 0;
+          color: var(--black);
+        }
+
+        .contact .icons-container .icons p{
+          font-size: 1.5rem;
+          line-height: 2;
+          color: var(--light-color);
+        }
+
+        .contact .row{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          margin-top: 4rem;
+        }
+
+        .contact .row .image{
+          flex: 1 1 20rem;
+        }
+
+        .contact .row .image img{
+          width: 100%;
+        }
+
+        .contact .row form{
+          flex: 1 1 50rem;
+          padding: 2rem;
+          border: 0.1rem solid rgba(0,0,0,.4);
+          box-shadow: var(--box-shadow);
+          border-radius: .5rem;
+        }
+
+        .contact .row form h3{
+          font-size: 3rem;
+          padding-bottom: 1rem;
+          color: var(--black);
+        }
+
+        .contact .row form .inputBox{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .contact .row form .inputBox input{
+          width: 49%;
+        }
+        .contact .row form .inputBox select{
+          width: 49%;
+        }
+        .contact .row form .inputBox input,
+        .contact .row form textarea{
+          font-size: 1.6rem;
+          border: 0.1rem solid rgba(0,0,0,.3);
+          border-radius: 0.5rem;
+          padding: 1rem 1.2rem;
+          color: var(--black);
+          margin: .7rem 0;
+        }
+
+        .contact .row form .inputBox input:focus,
+        .contact .row form textarea:focus{
+          border: 0.1rem solid var(--orange);
+        }
+
+        .contact .row form textarea{
+          height: 15rem;
+          width: 100%;
+          resize: none;
+        }
+              
         /* end */
         
         /* media query */
@@ -260,19 +317,70 @@
     </header>
 
     <!-- header section ends -->
-   <div class="container">
-      <form action="">
-        <div class="row">
-            <div class="col">
-                <h3 class="title">paying fee</h3>
-                <div class="input_box">
-                    <span>full name: </span>
-                    <input type="text" placeholder="Nguyen Van A">
-                </div>
+    <section class="contact" id="contact">
+
+
+      <div class="icons-container">
+
+          <div class="icons">
+              <i class="fas fa-clock"></i>
+              <h3>opening hours :</h3>
+              <p>mon - thurs: 08:00 am to 12:30 pm</p>
+              <p>friday: 09:00 am to 12:00 pm</p>
+          </div>
+
+          <div class="icons">
+              <i class="fas fa-envelope"></i>
+              <h3>email</h3>
+              <p>ninjashub4@gmail.com</p>
+              <p>ninjashub4@gmail.com</p>
+          </div>
+
+          <div class="icons">
+              <i class="fas fa-phone"></i>
+              <h3>phone number</h3>
+              <p>+123-456-7890</p>
+              <p>+123-456-7890</p>
+          </div>
+
+      </div>
+
+      <div class="row">
+
+          <div class="image">
+              <img src="https://img.freepik.com/premium-vector/online-payment-concept_118813-2685.jpg?w=2000" alt="">
+          </div>
+
+          <form action="YOUR_PAYMENT_GATEWAY_ENDPOINT">
+            <h3>fee payment</h3>
+            <div class="inputBox">
+                <input type="text" name="cardholderName" placeholder="Cardholder Name" required>
+                <input type="email" name="email" placeholder="Email" required>
             </div>
-        </div>
-      </form>
-   </div>
+            <div class="inputBox">
+                <select name="cardType" required>
+                    <option value="" disabled selected>Select Card Type</option>
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">MasterCard</option>
+                    <option value="amex">American Express</option>
+                </select>
+                <input type="text" name="cardNumber" placeholder="Card Number" required>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="expiry" placeholder="Expiration Date (MM / YY)" required>
+                <input type="text" name="cvv" placeholder="CVV" required>
+            </div>
+            <div class="inputBox">
+                <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+                <input type="hidden" name="currency" value="USD">
+                <input type="hidden" name="description" value="Payment for Products">
+            </div>
+            <input type="submit" value="Submit Payment" class="btn">
+        </form>
+
+      </div>
+
+  </section>
   
     <!-- contact section ends -->
     
