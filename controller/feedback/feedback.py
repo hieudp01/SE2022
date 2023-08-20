@@ -33,7 +33,7 @@ def view_one_feedback_of_child(feedback_id, allowed_children_list):
                            feedback_comment=feedback_comment)
 
 
-def post_comment(content, role, detail_func, feedback_id):
+def post_comment(content, role, feedback_id):
     content = content.strip()
 
     if len(content) >= 500:
@@ -52,7 +52,16 @@ def post_comment(content, role, detail_func, feedback_id):
         feedback_comment = FeedbackTeacher(content=content, teacher_id=session['user']['id'], feedback_id=feedback_id)
     else:
         feedback_comment = FeedbackParent(content=content, parent_id=session['user']['id'], feedback_id=feedback_id)
-    db_session.add(feedback_comment)
-    db_session.commit()
+    try:
+        db_session.add(feedback_comment)
+        db_session.commit()
+    except Exception as e:
+        print(e)
+        return {
+            "status": "error",
+            "message": "Something went wrong"
+        }
 
-    return detail_func(feedback_id)
+    return {
+        "status": "success"
+    }

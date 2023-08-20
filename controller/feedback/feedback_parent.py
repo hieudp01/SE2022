@@ -16,9 +16,9 @@ def index():
         .filter(Feedback.time >= date.today(),
                 Feedback.time < date.today() + timedelta(days=1)).all()
 
-    # if len(rows.Children) != len(tuple(rows.Children)):
-    #     return render_template('error.html',
-    #                            error='Database error, one child have multiple feedbacks today. Please contact teachers')
+    if len(rows) != len(set([row.Children.id for row in rows])):
+        return render_template('error.html',
+                               error='Database error, one child have multiple feedbacks today. Please contact teachers')
 
     return render_template('feedback/parent.html', rows=rows)
 
@@ -48,4 +48,4 @@ def comment(feedback_id):
     if feedback_post is None or feedback_post.child_id not in [child['id'] for child in session['children']]:
         return render_template('error.html', error='Feedback id is not valid')
 
-    return post_comment(request.form.get('comment', ''), Role.PARENT, detail, feedback_id)
+    return post_comment(request.form.get('comment', ''), Role.PARENT, feedback_id)

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 from controller.authentication.middleware import teacher_required
 from model.Attendance import Attendance
@@ -45,13 +45,27 @@ def post():
             "message": "Child id not found or child is not in class today"
         }
 
-    feedback_post = Feedback(child_id=child_id, teacher_id=session['user']['id'], content=feedback_content)
+    old_feedback = Feedback.query.where(Feedback.child_id == child_id, Feedback.time >= date.today(),
+                                        Feedback.time < date.today() + timedelta(days=1)).one_or_none()
 
-    db_session.add(feedback_post)
-    db_session.commit()
-    return {
-        "status": "success"
-    }
+    try:
+        if old_feedback is None:
+            feedback_post = Feedback(child_id=child_id, teacher_id=session['user']['id'], content=feedback_content)
+            db_session.add(feedback_post)
+        else:
+            old_feedback.content = feedback_content
+            old_feedback.time = datetime.now()
+
+        db_session.commit()
+        return {
+            "status": "success"
+        }
+    except Exception as e:
+        print(e)
+        return {
+            "status": "error",
+            "message": "Something went wrong"
+        }
 
 
 @feedback.get('/child/<child_id>')
@@ -81,4 +95,4 @@ def comment(feedback_id):
             "status": "error", "message": "Feedback id is not valid"
         }
 
-    return post_comment(request.form.get('comment', ''), Role.TEACHER, detail, feedback_id)
+    return post_comment(request.form.get('comment', ''), Role.TEACHER, feedback_id)
