@@ -1,22 +1,22 @@
-INSERT INTO parent (name, email, phone, password)
+INSERT INTO parent (id,name, email, phone, password)
 VALUES
-    ('John Doe', 'john@example.com', '12345678901', 'p@ssw0rd'),
-    ('Jane Smith', 'jane@example.com', '98765432102', 'secure123'),
-    ('Michael Johnson', 'michael@example.com', '55512345603', 'm1k3pass'),
-    ('Emily Brown', 'emily@example.com', '11122233304', 'brownie22'),
-    ('Robert Davis', 'robert@example.com', '44455566605', 'rd567pass'),
-    ('Sarah Wilson', 'sarah@example.com', '77788899906', 'swilson#1'),
-    ('David Lee', 'david@example.com', '22233344407', 'dlee7890'),
-    ('Jessica Martinez', 'jessica@example.com', '88899900008', 'jm12345'),
-    ('Christopher Taylor', 'chris@example.com', '33344455509', 'ctaylor_pass'),
-    ('Amanda Johnson', 'amanda@example.com', '55566677710', 'amandapw'),
-    ('William Anderson', 'will@example.com', '66677788811', 'willa123'),
-    ('Samantha Brown', 'sam@example.com', '77788899912', 'sbrownpass'),
-    ('Benjamin Clark', 'ben@example.com', '88899900013', 'benc123'),
-    ('Olivia White', 'olivia@example.com', '99900011114', 'oliviaw'),
-    ('Ethan Green', 'ethan@example.com', '00011122215', 'greeneth'),
-    ('Mia Johnson', 'mia@example.com', '11122233316', 'miaj321'),
-    ('Alexander Parker', 'alex@example.com', '22233344417', 'alexparker'),
-    ('Ava Adams', 'ava@example.com', '33344455518', 'ava123pass'),
-    ('James Wilson', 'james@example.com', '44455566619', 'jwilson456'),
-    ('Sophia Turner', 'sophia@example.com', '55566677720', 'sophiaturner');
+    ('PR001','John Doe', 'john@example.com', '12345678901', '$2a$12$SZ84Ss7qY7sx56G0aqArdOxw0WrNyyY6MmJARU39zjseY42SsZJ1O'), -- p@ssw0rd
+    ('PR002','Jane Smith', 'jane@example.com', '98765432102', '$2a$12$gE0lhW16eWwZp4mXdzIQt.sWwsppFMvjlRg6BQpUS/IWk7gM32U.a'), -- secure123
+    ('PR003','Michael Johnson', 'michael@example.com', '55512345603', '$2a$12$0fLmjOIcssiPHyQ7QWUKX.6MgJU2tjW8H7UdhA01kDctZolPvB3Za'), -- m1k3pass
+    ('PR004','Emily Brown', 'emily@example.com', '11122233304', '$2a$12$ygMvhhBtCozuxD/HpqOCIenCv9ZI4ugvXf7BJuXPsMPnohKompcMC'), -- brownie22
+    ('PR005','Robert Davis', 'robert@example.com', '44455566605', '$2a$12$6jMAC52KtjqMb4kBNcAeAuAup5PvN4bhaDwIS17tLpVDYxNEzsXty'), -- rd567pass
+    ('PR006','Sarah Wilson', 'sarah@example.com', '77788899906', '$2a$12$ETpAgGNJCqhtHnfwB9tOquv/ptOdcft/k5ClUSnUiQ23n/z/wfyiu'), -- swilson#1
+    ('PR007','David Lee', 'david@example.com', '22233344407', '$2a$12$jR/GfVWRDvWt7zBrCrp6.uzDwBjABBtWEDWO20ltcZAcPPcu8ywRG'), -- dlee7890
+    ('PR008','Jessica Martinez', 'jessica@example.com', '88899900008', '$2a$12$sR7POntksB4iFo2PLXbZpuj2XxbxbW8UIfTCn9oZICzLB6Ex2RUUG'), -- jm12345
+    ('PR009','Christopher Taylor', 'chris@example.com', '33344455509', '$2a$12$IvO8XICuDpGZR.OB2ztcV.kjFvnxWMs4/O2cH6iQdFy5mzN21vY12'), -- ctaylor_pass
+    ('PR010','Amanda Johnson', 'amanda@example.com', '55566677710', '$2a$12$lE6ieY4AGypuwQWe.5mInufNNw9Juobn7ZEZ0bRZCGQSyWXb5GHP.'), -- amandapw
+    ('PR011','William Anderson', 'will@example.com', '66677788811', '$2a$12$jGGd7NPmJMxGOddkDU7OI.ARXO0KfdY8Eic.qhLACvOovo3mOhtdm'), -- willa123
+    ('PR012','Samantha Brown', 'sam@example.com', '77788899912', '$2a$12$UBzgL3pPytvwj98l3bG74.9BVJFKgkiy3p2qadn8gd8zSQW2RzRPO'), -- sbrownpass
+    ('PR013','Benjamin Clark', 'ben@example.com', '88899900013', '$2a$12$KQ.jl6IWc7Q8EiobhNjIgO0fNRs3CXOH.9SjQimipzlZ6ngGhT3hy'), -- benc123
+    ('PR014','Olivia White', 'olivia@example.com', '99900011114', '$2a$12$gRi8Cj4RsOw8cAxR6DF.IOYcLpKLNTN6BAlvSZ.XW/ueqXmemY2Se'), -- oliviaw
+    ('PR015','Ethan Green', 'ethan@example.com', '00011122215', '$2a$12$lKB1CvpPS5pu1L5Q9pjPreAHUhThGL25Kcu83nk/MOziRdEH0/d6C'), -- greeneth
+    ('PR016','Mia Johnson', 'mia@example.com', '11122233316', '$2a$12$YRjs/cVESjBDJKMX5Cdav.nLMyGgHd0xugnPWRfNI.p4/DdqcGkJa'), -- miaj321
+    ('PR017','Alexander Parker', 'alex@example.com', '22233344417', '$2a$12$U6VbrDRrqaaYKsfrXoOWXuzNO3dy1SS3NJ0kcRnah05UqbZ8KtYI.'), -- alexparker
+    ('PR018','Ava Adams', 'ava@example.com', '33344455518', '$2a$12$iP1RF2OldoM4noJ5kHv8zO86M72pUuArBLjvTOVly7UbnjsLrelBm'), -- ava123pass
+    ('PR019','James Wilson', 'james@example.com', '44455566619', '$2a$12$dPJwBtXTudsr92IRy.eV..svv76mVLLKkb3Baf2MD31TgG5zKfnMi'), -- jwilson456
+    ('PR020','Sophia Turner', 'sophia@example.com', '55566677720', '$2a$12$96RchtPN6uuzyFBEGz5/mOd4f/BcSjxnjOE2n66ESXdxxOvZ8nE92'); -- sophiaturner

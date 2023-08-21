@@ -1,6 +1,7 @@
+
 INSERT INTO class (name) VALUES
-    ('Sunflowers'),
+    ('Flowers'),
     ('Rainbows'),
-    ('Butterflies'),
-    ('Ladybugs'),
-    ('Bumblebees');
+    ('Flies'),
+    ('Bugs'),
+    ('Bees');
