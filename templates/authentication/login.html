@@ -17,16 +17,6 @@
 <header class="header">
 
     <a href="index.html" class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
-    <div class="icons">
-        <div class="dropdown">
-            <select id="role">
-                <option value="admin">Admin</option>
-                <option value="parents">Parents</option>
-                <option value="teacher">Teacher</option>
-            </select>
-            <i class="fas fa-user"></i>
-        </div>
-    </div>
 
 </header>
 
@@ -35,25 +25,24 @@
 
     <div class="form-box">
         <h1> Sign In</h1>
-        <form class="form-reg">
+        <form class="form-reg" method="POST" action="{{ url_for('auth.login') }}" >
             <div class="input-group">
                 <div class="input-field" id="input-admin-teacher">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Parent ID" id="username" name="username">
                 </div>
 
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" id="password" name="password">
                 </div>
 
                 <div class="btn-field-login">
-                    <button type="button"> Login</button>
+                    <button type="submit"> Login</button>
                 </div>
 
             </div>
 
-            <p>Lost password ?<a href="#"> Click Here!</a></p>
 
 
         </form>
@@ -103,20 +92,5 @@
     <div class="credit"> &copy; copyright @ 2023 by <span>hieudp01</span></div>
 
 </section>
-<script>
-    const role = document.querySelector('#role');
-    const inputAdminTeacher = document.querySelector('#input-admin-teacher input');
-
-    role.addEventListener('change', (event) => {
-        if (event.target.value === 'parents') {
-            inputAdminTeacher.setAttribute('placeholder', 'Child ID');
-            document.querySelector("#input-admin-teacher i").className = "fa-solid fa-child";
-
-        } else {
-            inputAdminTeacher.setAttribute('placeholder', 'Email');
-            document.querySelector("#input-admin-teacher i").className = "fa-solid fa-envelope";
-        }
-    });
-</script>
 </body>
 </html>

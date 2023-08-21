@@ -34,6 +34,7 @@ def login():
         "role": Parent.get_role()
     }
 
+
     children = Children.query.where(Children.parent_id == parent.id).join(Class).all()
     allowed_children = [child.id for child in children]
 

@@ -552,7 +552,7 @@
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
             <a href="child.html">Child</a>
-            <a href="feedback.html">Feedback</a>
+            <a href="{{url_for('parent.feedback.index')}}">Feedback</a>
             <a href="meal.html">meal</a>
             <a href="fee.html">Fees</a>
             <a href="../index.html">Logout</a>
@@ -579,18 +579,15 @@
             <label for="name">Name: </label>
             <textarea id="name-area" rows="4" cols="50">Nguyen Van A</textarea>
 
-            <label for="grade">Grade: </label>
-            <input type="text" id="grade" name="grade" placeholder="Enter grade">
+            <label for="grade">Child ID: </label>
+            
 
             <label for="class">Class: </label>
-            <input type="text" id="class" name="class" placeholder="Enter class">
+           
 
-            <label for="age">Age: </label>
-            <input type="number" id="age" name="age" placeholder="Enter age">
+            <label for="age">Date of birth: </label>
+          
 
-            <!-- You can replace 'avatar.jpg' with the actual path to your avatar photo -->
-            <label for="avatar">Avatar Photo: </label>
-            <input type="file" id="avatar" name="avatar" accept="image/*">
         </div>
       
       </div>
@@ -616,11 +613,11 @@
         <div class="emoji">
             <h2>Rate</h2>
             <div id="emoji2"> 
-                <img src="..\images\poor.png">
-                <img src="..\images\bad.png">
-                <img src="..\images\okay.png">
-                <img src="..\images\good.png">
-                <img src="..\images\excellent.png">
+                <img src="{{ url_for('static', filename='images/poor.jpg') }}">
+                <img src="{{ url_for('static', filename='images/bad.png')}}">
+                <img src="{{ url_for('static', filename='images/okay.png')}}">
+                <img src="{{ url_for('static', filename='images/good.png')}}">
+                <img src="{{ url_for('static', filename='images/excellent.png')}}">
             </div>
         </div>
         <div class="rating">
@@ -640,42 +637,42 @@
      <div class="box-container">
 
         <div class="box">
-            <img src="../images/meal1.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal1.jpg') }}" alt="">
             <h3>Chicken and Rice Congee</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal2.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal2.jpg') }}" alt="">
             <h3>Rice Paper Rolls</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal3.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal3.jpg') }}" alt="">
             <h3>Steamed Rice with Grilled Chicken</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal4.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal4.jpg') }}" alt="">
             <h3>omelet</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal5.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal5.jpg') }}" alt="">
             <h3>salad</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal6.png" alt="">
+            <img src="{{ url_for('static', filename='images/meal6.png') }}" alt="">
             <h3>bread and milk</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal7.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal7.jpg') }}" alt="">
             <h3>shrimp congee</h3>
         </div>
 
         <div class="box">
-            <img src="../images/meal8.jpg" alt="">
+            <img src="{{ url_for('static', filename='images/meal8.jpg') }}" alt="">
             <h3>fruits</h3>
         </div>
 
