@@ -12,6 +12,7 @@ teacher_route = Blueprint('teacher', __name__, subdomain='teacher')
 @parent_route.get('/')
 @parent_required
 def index():
+
     return render_template('index/parent.html')
 
 @teacher_route.get('/')

@@ -551,11 +551,11 @@
 
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
-            <a href="child.html">Child</a>
-            <a href="{{url_for('parent.feedback.index')}}">Feedback</a>
-            <a href="meal.html">meal</a>
+            <a href="#child">Child</a>
+            <a href="{{url_for('parent.feedback.index')}}">Feedback Notification</a>
+            <a href="#meal">meal</a>
             <a href="fee.html">Fees</a>
-            <a href="../index.html">Logout</a>
+            <a href="{{ url_for('auth.index')}}">Logout</a>
         </nav>
       
         </form>
