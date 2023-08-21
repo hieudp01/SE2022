@@ -54,13 +54,12 @@
             </div>
 
     
-            {% if error %}
+            
 
-            <div class="btn-field-login">
+            <div class="btn-field-login" id="#wtf" style="display:none;">
 
-               <p style="color: red;">Wrong credentials: {{ error }}</p>
+               <p style="color: red;">Wrong credentials: Invalid username & password</p>
             </div>
-            {% endif %}
 
 
         </form>
@@ -124,6 +123,17 @@
             document.querySelector("#input-admin-teacher i").className = "fa-solid fa-envelope";
         }
     });
+
+    document.querySelector(".form-reg").onsubmit = function(event) {
+    event.preventDefault();
+    var username = document.querySelector("input[name='username']").value;
+    var password = document.querySelector("input[name='password']").value;
+    if (role.value == "parents") {
+        window.location.href = "../index/parent.html";
+    } else {
+        window.location.href = "../index/teacher.html";
+    }
+}
 </script>
 </body>
 </html>

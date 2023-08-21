@@ -313,7 +313,7 @@
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
             <i class="fas fa-chalkboard-teacher"></i>
-            <a href="child.html">Teacher Feedback</a>
+            <a href="../index/teacher.html">Teacher</a>
             
         </nav>
       
@@ -336,15 +336,136 @@
                 
               </div>
               <div class="vi_right" style="font-size: 15px;">
-                <p class="name"> Name: </p>
-                <p class="class">Class: </p>
+                <p class="name"> Name: Ethan Green Jr. </p>
+                <p class="class">Class: Rainbows</p>
                 <input type="text" value="comment">
                 <input type="submit" value="Feedback">
               </div>
             </div>
           </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://images2.thanhnien.vn/uploaded/thanhthuy/2018_10_02/1_ITOY.jpg?width=500">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Benjamin Clark Jr.</p>
+                <p class="class">Class: Bumblebees</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://nationaltoday.com/wp-content/uploads/2021/04/Every-Kid-Healthy-1200x834.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Mason Harris Jr. </p>
+                <p class="class">Class: Ladybugs</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://kidcitystores.com/cdn/shop/files/colle-1.jpg?v=1668766002&width=535">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Mia Taylor </p>
+                <p class="class">Class: Rainbows</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://static.toiimg.com/photo/94857708.cms">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Johnson</p>
+                <p class="class">Class: Sunflowers</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://img.freepik.com/free-photo/worldface-russian-kid-white-background_53876-146323.jpg?w=2000">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Chloe Davis </p>
+                <p class="class">Class: Rainbows</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://st.depositphotos.com/1000619/2104/i/450/depositphotos_21040809-stock-photo-little-girl-on-the-beach.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Green</p>
+                <p class="class">Class: Ladybugs</p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://img.freepik.com/premium-photo/happy-kid-showing-like-sign_23-2148244750.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Alexander Jackson Jr.</p>
+                <p class="class">Class:Bumblebees </p>
+                <input type="text" value="comment">
+                <input type="submit" value="Feedback">
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://www.kidinc.org/wp-content/uploads/2020/11/KID_Homepage_Squares_Family.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Johnson</p>
+                <p class="class">Class: Bumblebees</p>
+                <input type="text" value="comment" id="commentInput">
+                <input type="submit" value="Feedback" onclick="submitFeedback()" >
+              </div>
+            </div>
+          </div>
+
           
         </div>
+
+     
+          
+          
+
+        
     </section>
    
    
@@ -358,6 +479,25 @@
        document.querySelector('#close').addEventListener('click', function() {
             document.querySelector('.form-fb').style.display = 'none';
        });
+
+       document.querySelector('.btn').addEventListener('click', function() {
+            document.querySelector('.form-fb').style.display = '';
+       });
+
+       function submitFeedback() {
+        // Get the value of the input field
+        var comment = document.getElementById("commentInput").value;
+        
+        // Display the comment as an alert
+        if (comment) {
+            alert("Feedback: " + comment);
+            // Clear the input field after submitting
+            document.getElementById("commentInput").value = "";
+        } else {
+            alert("Please enter a comment before submitting.");
+        }
+    }
+     
     </script>
     <!--trang này cả teacher và parent đều truy cập được
 <br>

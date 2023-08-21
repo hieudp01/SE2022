@@ -43,7 +43,7 @@
         }
         
         html{
-          font-size: 62.5%;
+          font-size: 70%;
 
           overflow-x: hidden;
           scroll-behavior: smooth;
@@ -234,6 +234,7 @@
         .form-fb
         {
           display:flex;
+          z-index: 2000;
           position:absolute;
           flex-direction: column;
           align-items: center;
@@ -418,7 +419,7 @@
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
           <i class="fa-solid fa-user"></i>
-            <a href="child.html">Parent</a>
+            <a href="../index/parent.html">Parent</a>
         </nav>
       
 
@@ -431,15 +432,14 @@
     <!-- footer section ends -->
    <section>
     <div class="form-fb" style="display:none">
-      <h1>Feedback Form</h1>
+      <h1>Feedback Detail</h1>
       <i class="fa fa-window-close" id="close" style="font-size: 25px;" aria-hidden="true"></i>
 
       <div class="feedback-comment">
-        <input type="text" id="name" placeholder="Teacher...">
-        <input type="text" id="comment" name="comment" placeholder="Comment...">
+        <input type="text" id="name" placeholder="Teacher: Emily Johnson">
+        <input type="text" id="comment" name="comment" placeholder="Comment: - Very good student">
       </div>
 
-      <button class="pop-btn">Submit Feedback</button>
 
     </div>
     
@@ -452,8 +452,22 @@
                 
               </div>
               <div class="vi_right">
-                <p class="name"> Name: </p>
-                <p class="class">Class: </p>
+                <p class="name"> Name: Noah Green </p>
+                <p class="class">Class: Ladybugs</p>
+                <button class="btn">More</button>  
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://static.toiimg.com/photo/94857708.cms">
+                
+              </div>
+              <div class="vi_right">
+                <p class="name"> Name: Noah Johnson </p>
+                <p class="class">Class: Sunflowers</p>
                 <button class="btn">More</button>  
               </div>
             </div>

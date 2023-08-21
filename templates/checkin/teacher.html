@@ -44,16 +44,12 @@
         
         html{
           font-size: 62.5%;
-
           overflow-x: hidden;
           scroll-behavior: smooth;
         }
         
-        
-        
         /* header */
         .header{
-
           position: fixed;
           top: 0; left: 0; right: 0;
           z-index: 1000;
@@ -64,6 +60,7 @@
           max-height: 100px;
           background: var(--white);
           box-shadow: var(--box-shadow);
+
         }
         
         .header .logo{
@@ -147,6 +144,8 @@
             align-items: center;
             overflow: auto;
         }*/
+
+        
          
         section {
             min-height: 100vh;
@@ -167,12 +166,16 @@
           grid-template-columns: repeat(3, 1fr);
           grid-gap: 50px;
         }
+
         .view_wrap {
           padding: 20px;
           background-color: #eee;
           width: 300px;
           height: 300px;
+          display: flex;
+          justify-content: center;
         }
+      
 
         .vi-right #name {
           font-size: 200px;
@@ -181,7 +184,7 @@
 
         
         .view_item img{
-            width:200px;
+            width: 80%;
         }
 
        
@@ -231,115 +234,7 @@
           color: var(--white);
         }
          
-        .form-fb
-        {
-          display:flex;
-          position:absolute;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background-color: #fff;
-          width: 40%;
-          height: 85%;
-          padding:20px 20px;
-          border-radius: 24px;
-        
-        }
-
-    
-        
-        
-        .form-fb h1{
-            font-size: 30px;
-            color: #1d1c1c;
-            position:relative;
-        }
-
-        .form-fb i{
-           position: absolute;
-           right: 20px;
-           top: 10px;
-        }
-
-        .form-fb i:hover{
-          
-           color:red;
-           
-        }
-
-        .form-fb h1::after{
-          content: '';
-          width: 30px;
-          height: 4px;
-          border-radius: 3px;
-          background: #f9ba60;
-          position:absolute;
-          bottom: -12px;
-          left:50%;
-          transform: translateX(-50%);
-        }
-     
-
-        .form-fb .pop-btn
-        {
-          font-size: 1.7rem;
-          display: inline-block;
-          padding: .8rem 3rem;
-          border-radius: .5rem;
-          border: .2rem solid var(--orange);
-          color: var(--black);
-          background: none;
-          cursor: pointer;
-
-        }
-
-        .form-fb .pop-btn:hover{
-          background: linear-gradient(to right,#ff4b4b, #e9768f);
-          color: var(--white);
-        }
-         
-        .form-fb i {
-          font-size: 70px;
-          
-        }
-
-        .feedback-comment
-        {
-          margin: 10%;
-        }
-        
-
-        .form-fb input {
-          width: 100%;
-          font-size: 20px;
-          border-color: black;
-          border-radius: 3px;
-          box-sizing: border-box;
-        }
-
-        .form-fb input,
-        .form-fb textarea{
-          font-size: 1.6rem;
-          border: 0.1rem solid rgba(0,0,0,.3);
-          border-radius: 1rem;
-          padding: 1rem 1.2rem;
-          color: var(--black);
-          margin: 1rem 0;
-        }
-        
-        #comment,
-        .form-fb textarea {
-            font-size: 1.6rem;
-            border: 0.1rem solid rgba(0,0,0,.3);
-            border-radius: 1rem;
-            padding: 1rem 1.2rem 15rem;
-            color: var(--black);
-            margin: 1rem 0;
-            overflow: auto;
-        }
-
-        
-
+       
         
         
         /* media query */
@@ -417,11 +312,9 @@
 
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
-            <a href="child.html">Child</a>
-            <a href="feedback.html">Feedback</a>
-            <a href="meal.html">meal</a>
-            <a href="fee.html">Fees</a>
-            <a href="parent.html">Back</a>
+            <i class="fas fa-chalkboard-teacher"></i>
+            <a href="../index/teacher.html">Teacher</a>
+            
         </nav>
       
 
@@ -433,18 +326,6 @@
   
     <!-- footer section ends -->
    <section>
-    <div class="form-fb" style="display:none">
-      <h1>Feedback Form</h1>
-      <i class="fa fa-window-close" id="close" style="font-size: 25px;" aria-hidden="true"></i>
-
-      <div class="feedback-comment">
-        <input type="text" id="name" placeholder="Teacher...">
-        <input type="text" id="comment" name="comment" placeholder="Comment...">
-      </div>
-
-      <button class="pop-btn">Submit Feedback</button>
-
-    </div>
     
       
         <div class="view_main">
@@ -454,20 +335,135 @@
                 <img src="https://st.depositphotos.com/1000619/2104/i/450/depositphotos_21040809-stock-photo-little-girl-on-the-beach.jpg">
                 
               </div>
-              <div class="vi_right">
-                <p class="name"> Name: </p>
-                <p class="class">Class: </p>
-                <button class="btn">More</button>  
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Ethan Green Jr. </p>
+                <p class="class">Class: Rainbows</p>
+                <input type="text" value="present">
+
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://images2.thanhnien.vn/uploaded/thanhthuy/2018_10_02/1_ITOY.jpg?width=500">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Benjamin Clark Jr.</p>
+                <p class="class">Class: Bumblebees</p>
+                <input type="text" value="present">
+
               </div>
             </div>
           </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://nationaltoday.com/wp-content/uploads/2021/04/Every-Kid-Healthy-1200x834.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Mason Harris Jr. </p>
+                <p class="class">Class: Ladybugs</p>
+                <input type="text" value="present">
+
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://kidcitystores.com/cdn/shop/files/colle-1.jpg?v=1668766002&width=535">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Mia Taylor </p>
+                <p class="class">Class: Rainbows</p>
+                <input type="text" value="present">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://static.toiimg.com/photo/94857708.cms">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Johnson</p>
+                <p class="class">Class: Sunflowers</p>
+                <input type="text" value="present">
+
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://img.freepik.com/free-photo/worldface-russian-kid-white-background_53876-146323.jpg?w=2000">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Chloe Davis </p>
+                <p class="class">Class: Rainbows</p>
+                <input type="text" value="present">
+
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://st.depositphotos.com/1000619/2104/i/450/depositphotos_21040809-stock-photo-little-girl-on-the-beach.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Green</p>
+                <p class="class">Class: Ladybugs</p>
+                <input type="text" value="absent">
+
+              </div>
+            </div>
+          </div>
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://img.freepik.com/premium-photo/happy-kid-showing-like-sign_23-2148244750.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Alexander Jackson Jr.</p>
+                <p class="class">Class:Bumblebees </p>
+                <input type="text" value="present">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://www.kidinc.org/wp-content/uploads/2020/11/KID_Homepage_Squares_Family.jpg">
+                
+              </div>
+              <div class="vi_right" style="font-size: 15px;">
+                <p class="name"> Name: Noah Johnson</p>
+                <p class="class">Class: Bumblebees</p>
+                <input type="text" value="present">
+              </div>
+            </div>
+          </div>
+
           
         </div>
 
      
+          
+          
 
-    
-   
+        
     </section>
    
    
@@ -481,6 +477,25 @@
        document.querySelector('#close').addEventListener('click', function() {
             document.querySelector('.form-fb').style.display = 'none';
        });
+
+       document.querySelector('.btn').addEventListener('click', function() {
+            document.querySelector('.form-fb').style.display = '';
+       });
+
+       function submitFeedback() {
+        // Get the value of the input field
+        var comment = document.getElementById("commentInput").value;
+        
+        // Display the comment as an alert
+        if (comment) {
+            alert("Feedback: " + comment);
+            // Clear the input field after submitting
+            document.getElementById("commentInput").value = "";
+        } else {
+            alert("Please enter a comment before submitting.");
+        }
+    }
+     
     </script>
     <!--trang này cả teacher và parent đều truy cập được
 <br>

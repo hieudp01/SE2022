@@ -1,16 +1,3 @@
-<!--hiện ra list child kèm với list feedback hôm nay của child đó, bấm vào child để xem list các feedback cũ, bấm vào feedback hôm nay để xem chi tiết feedback
-
-{% for child in children_list %}
-    <h3>Children: {{ child.child.name }}</h3>
-    <h4>Today feedback</h4>
-    {% if child.feedback != none %}
-        <p>{{ child.feedback.__dict__ }}</p>
-    {% else %}
-        <p>Teacher haven't posted feedback today</p>
-    {% endif %}
-{% endfor %}-->
-
-
 <!--bấm vào từng feedback để xem chi tiết
 <br>
 {% for feedback in feedback_list %}
@@ -56,7 +43,7 @@
         }
         
         html{
-          font-size: 62.5%;
+          font-size: 70%;
 
           overflow-x: hidden;
           scroll-behavior: smooth;
@@ -68,8 +55,8 @@
         .header{
 
           position: fixed;
-          z-index: 2;
           top: 0; left: 0; right: 0;
+          z-index: 1000;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -246,20 +233,18 @@
          
         .form-fb
         {
-          z-index: 4;
           display:flex;
+          z-index: 2000;
           position:absolute;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background-color:antiquewhite;
+          background-color: #fff;
           width: 40%;
           height: 85%;
-          border-color: black;
-
           padding:20px 20px;
           border-radius: 24px;
-          
+        
         }
 
     
@@ -268,7 +253,7 @@
         .form-fb h1{
             font-size: 30px;
             color: #1d1c1c;
-            position:absolute;
+            position:relative;
         }
 
         .form-fb i{
@@ -433,11 +418,8 @@
 
         <a  class="logo"> <i class="fas fa-school"></i> BK Kindergarten</a>
         <nav class="navbar">
-            <a href="child.html">Child</a>
-            <a href="feedback.html">Feedback</a>
-            <a href="meal.html">meal</a>
-            <a href="fee.html">Fees</a>
-            <a href="parent.html">Back</a>
+          <i class="fa-solid fa-user"></i>
+            <a href="../index/parent.html">Parent</a>
         </nav>
       
 
@@ -450,22 +432,14 @@
     <!-- footer section ends -->
    <section>
     <div class="form-fb" style="display:none">
-      <h1>Feedback Form</h1>
+      <h1>Absence Detail</h1>
       <i class="fa fa-window-close" id="close" style="font-size: 25px;" aria-hidden="true"></i>
 
-      <!--<div class="feedback-comment">
-        <input type="text" id="name" placeholder="Teacher...">
-        <input type="text" id="comment" name="comment" placeholder="Comment...">
-      </div>-->
-
-      <ul class="comment-list">
-        <li>
-          <h3>Tên người dùng</h3>
-          <p>Nội dung bình luận</p>
-        </li>
-        <!-- Thêm các bình luận khác vào đây -->
-      </ul>
-
+      <div class="feedback-comment">
+        <input type="text" id="comment" name="comment" placeholder="Comment">
+      </div>
+      
+      <button class="pop-btn" onclick="showAlert()">Submit</button>
 
     </div>
     
@@ -478,15 +452,33 @@
                 
               </div>
               <div class="vi_right">
-                <p class="name"> Name: </p>
-                <p class="class">Class: </p>
-                <button class="btn">More</button>  
+                <p class="name"> Name: Noah Green </p>
+                <p class="class">Class: Ladybugs</p>
+                <button class="btn">Absent</button>  
+              </div>
+            </div>
+          </div>
+
+          <div class="view_wrap list-view">
+            <div class="view_item">
+              <div class="vi_left">
+                <img src="https://static.toiimg.com/photo/94857708.cms">
+                
+              </div>
+              <div class="vi_right">
+                <p class="name"> Name: Noah Johnson </p>
+                <p class="class">Class: Sunflowers</p>
+                <button class="btn">Absent</button>  
               </div>
             </div>
           </div>
           
         </div>
 
+     
+
+    
+   
     </section>
    
    
@@ -500,6 +492,10 @@
        document.querySelector('#close').addEventListener('click', function() {
             document.querySelector('.form-fb').style.display = 'none';
        });
+       
+function showAlert() {
+    alert("Submitted!");
+}
     </script>
     <!--trang này cả teacher và parent đều truy cập được
 <br>
