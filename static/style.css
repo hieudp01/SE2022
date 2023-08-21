@@ -360,16 +360,18 @@ input{
   justify-content: space-around;
 }
 
-.form-reg .btn-field-login button{
-  flex-basis: 50%;
+.form-reg .btn-field-login input{
   background: #f9ba60;
   color: #fff;
-  height: 40px;
-  border-radius:  20px;
+  height: 50px;
+  border-radius: 20px;
   border: 0;
   outline: 0;
   cursor:pointer;
   transition:   1s;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: center;
 }
 
 .input-group{

@@ -1,3 +1,4 @@
+
 INSERT INTO parent (name, email, phone, password)
 VALUES
     ('John Doe', 'john@example.com', '12345678901', 'p@ssw0rd'),

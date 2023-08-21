@@ -8,7 +8,7 @@ from model.role import Role
 def __login_required(f, role: list):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        return_url = "auth.index"
+        return_url = url_for("auth.index")
         if role == [Role.TEACHER.value]:
             return_url = url_for('teacher_auth.index')
         if 'user' not in session or session['user'] is None:

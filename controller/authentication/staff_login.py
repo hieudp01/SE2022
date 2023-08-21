@@ -33,4 +33,4 @@ def login():
         "class_id": teacher.class_id
     }
 
-    return redirect(url_for('teacher.index'))
+    return render_template('index/teacher.html', role=Role.TEACHER)
